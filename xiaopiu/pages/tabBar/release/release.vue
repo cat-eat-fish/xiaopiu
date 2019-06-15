@@ -124,7 +124,9 @@ export default {
 			color: $uni-color-subtitle;
 			text-align: center;
 			font-size: $uni-font-size-base;
-			.box-image {
+			.box-image ,.iconfont{
+				font-size: 28px;
+				color: #238cff;
 				width: 100%;
 				height: $uni-img-size-lg;
 			}

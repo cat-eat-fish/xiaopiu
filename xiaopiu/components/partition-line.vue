@@ -1,8 +1,8 @@
 <template>
-	<view class="partition-line" :style="{padding:bodyPadding}">
-		<view class="line-l" :style="{backgroundColor:lineColor}"></view>
-		<view class="text" :style="{color:textColor}" v-html="text"></view>
-		<view class="line-r" :style="{backgroundColor:lineColor}"></view>
+	<view class="partition-line" :style="bodyStyle">
+		<view class="line-l" :style="lineStyle"></view>
+		<view class="text" :style="textStyle" v-html="text"></view>
+		<view class="line-r" :style="lineStyle"></view>
 	</view>
 </template>
 
@@ -18,16 +18,16 @@
 				default:"我是有底线的",
 				type:String
 			},
-			lineColor:{
-				default:"#c3c3c3",
+			lineStyle:{
+				default:"background-Coloe:#c3c3c3;width:30%",
 				type:String
 			},
-			textColor:{
-				default:"#c3c3c3",
+			textStyle:{
+				default:"color:#c3c3c3",
 				type:String
 			},
-			bodyPadding:{
-				default:"24upx 0",
+			bodyStyle:{
+				default:"padding:24upx 0",
 				type:String
 			}
 		}
