@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/commodity/commodity",
+    "pages/tabBar/release/release",
+    "pages/tabBar/cart/cart",
+    "pages/mine/setting/setting",
+    "pages/tabBar/mine/mine",
+    "pages/index/search/search",
+    "pages/index/product/product",
+    "pages/mine/login/login",
+    "pages/index/createOrder/createOrder",
+    "pages/mine/address/address",
+    "pages/mine/addressManage/addressManage",
+    "pages/mine/order/order",
+    "pages/mine/chat/chat",
+    "pages/mine/register/register",
+    "pages/mine/resetpasswd/resetpasswd",
+    "pages/mine/msg/msg",
+    "pages/mine/myQR/myQR",
+    "pages/mine/keep/keep",
+    "pages/mine/coupon/coupon",
+    "pages/mine/deposit/deposit",
+    "pages/mine/paySuccess/paySuccess",
+    "pages/commodity/productList/productList"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#f06c7a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "text": "首页",
+        "iconPath": "static/img/tabBar/tab-home.png",
+        "selectedIconPath": "static/img/tabBar/tab-home-current.png"
+      },
+      {
+        "pagePath": "pages/tabBar/commodity/commodity",
+        "text": "分类",
+        "iconPath": "static/img/tabBar/tab-cate.png",
+        "selectedIconPath": "static/img/tabBar/tab-cate-current.png"
+      },
+      {
+        "pagePath": "pages/tabBar/release/release",
+        "text": "发布",
+        "iconPath": "static/img/tabBar/tab_icon_5_5.png",
+        "selectedIconPath": "static/img/tabBar/tab_icon_5_5.png"
+      },
+      {
+        "pagePath": "pages/tabBar/cart/cart",
+        "text": "购物车",
+        "iconPath": "static/img/tabBar/tab-cart.png",
+        "selectedIconPath": "static/img/tabBar/tab-cart-current.png"
+      },
+      {
+        "pagePath": "pages/tabBar/mine/mine",
+        "text": "我的",
+        "iconPath": "static/img/tabBar/tab-my.png",
+        "selectedIconPath": "static/img/tabBar/tab-my-current.png"
+      }
+    ]
+  },
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "xiaopiu",
+  "compilerVersion": "1.9.9",
+  "usingComponents": {}
+}

@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@font-face {
+  font-family: yticon;
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://at.alicdn.com/t/font_1078604_w4kpxh0rafi.ttf") format("truetype");
+}
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page {
+  background-color: #f06c7a;
+}
+.block {
+  width: 100%;
+  height: 30vh;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.QR {
+  width: 60vw;
+  height: 60vw;
+  margin: -40vw auto 0 auto;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.QR image {
+    width: 50vw;
+    height: 50vw;
+}
+.title {
+  width: 100%;
+  margin-top: 50rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 36rpx;
+  color: #fff;
+}
+.btn {
+  width: 50%;
+  height: 80rpx;
+  border-radius: 80rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.logo {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 25rpx;
+}
+.logo image {
+    width: 39.6%;
+}
+

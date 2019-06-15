@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "black",
+  "onReachBottomDistance": 50,
+  "titleNView": false,
+  "softinputNavBar": "none",
+  "usingComponents": {
+    "uni-indexed-list": "/components/uni-indexed-list/uni-indexed-list"
+  }
+}
