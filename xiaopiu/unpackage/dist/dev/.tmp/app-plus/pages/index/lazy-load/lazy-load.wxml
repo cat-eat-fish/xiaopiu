@@ -1,0 +1,1 @@
+<view><view class="uni-media-list-logo"><image class="{{['image',(!item.show)?'lazy':'']}}" data-index="{{index}}" src="{{item.show?item.src:''}}" data-event-opts="{{[['load',[['imageLoad',['$event']]]]]}}" bindload="__e"></image><image class="{{['image placeholder',(item.loaded)?'loaded':'']}}" src="{{placeholderSrc}}"></image></view></view>

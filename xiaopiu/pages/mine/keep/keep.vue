@@ -3,7 +3,7 @@
 		<view class="tabr" :style="{top:headerTop}">
 			<view :class="{on:typeClass=='goods'}" @tap="switchType('goods')">商品({{goodsList.length}})</view>
 			<view :class="{on:typeClass=='shop'}"  @tap="switchType('shop')">店铺({{shopList.length}})</view>
-			<view class="border" :class="typeClass"></view>
+			<!-- <view class="border" :class="typeClass"></view> -->
 		</view>
 		<view class="place" ></view>
 		<view class="list">
@@ -232,8 +232,9 @@
 		background-color: #fff;
 		width: 100%;
 		height: 95upx;
-		padding: 0 3%;
-		border-bottom: solid 1upx #dedede;
+		// padding: 0 3%;
+		border: 1px solid #333;
+		// border-bottom: solid 1upx #dedede;
 		position: fixed;
 		top: 0;
 		z-index: 10;
@@ -246,7 +247,9 @@
 			color: #999;
 		}
 		.on{
-			color: #f06c7a;
+			background: #999;
+			// color: #f06c7a;
+			color: #fff;
 		}
 		.border{
 			height: 4upx;

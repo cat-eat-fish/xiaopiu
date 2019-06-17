@@ -18,9 +18,7 @@
     "url": ""
   },
   "permissions": {
-    "OAuth": {},
     "Push": {},
-    "Share": {},
     "UniNView": {
       "description": "UniNView原生渲染"
     }
@@ -75,24 +73,9 @@
       },
       "apple": {},
       "plugins": {
-        "oauth": {
-          "weixin": {
-            "appid": "",
-            "appsecret": ""
-          },
-          "qq": {
-            "appid": ""
-          }
-        },
-        "push": {
-          "unipush": {}
-        },
-        "share": {
-          "weixin": {
-            "appid": "",
-            "appsecret": ""
-          }
-        },
+        "oauth": {},
+        "push": {},
+        "share": {},
         "audio": {
           "mp3": {
             "description": "Android平台录音支持MP3格式文件"
@@ -108,16 +91,14 @@
       }
     },
     "uni-app": {
-      "compilerVersion": "1.9.9",
-      "control": "v8"
+      "compilerVersion": "2.0.1",
+      "control": "v8",
+      "nvueCompiler": "weex"
     },
     "secondwebview": {
       "id": "1",
       "launch_path": "__uniappview.html",
-      "kernel": "WKWebview",
-      "mode": "child",
-      "top": 0,
-      "bottom": 56
+      "kernel": "WKWebview"
     }
   }
 }

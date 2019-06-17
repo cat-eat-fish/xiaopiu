@@ -77,13 +77,13 @@
 			</view>
 			<!-- 浏览历史 -->
 			<view class="history-section icon">
-				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" @eventClick="navTo('/pages/mine/keep/keep')" iconColor="#54b4ef" title="我的收藏"></list-cell>
+				<list-cell icon="icon-shoucang" @eventClick="navTo('/pages/mine/keep/keep')" iconColor="rgb(222, 60, 60)" title="我的收藏"></list-cell>
 				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" @eventClick="navTo('/pages/mine/keep/keep')" iconColor="#54b4ef" title="我的关注"></list-cell>
 				<list-cell icon="icon-dizhi" iconColor="#5fcda2" title="地址管理" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
-				<list-cell icon="icon-dizhi" iconColor="#5fcda2" title="意见反馈" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
+				<list-cell icon="icon-comment" iconColor="#5fcda2" title="意见反馈" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
 				<list-cell icon="icon-pinglun-copy" iconColor="#ee883b" title="联系客服" tips="400-1234-5678"></list-cell>
-				<list-cell icon="icon-dizhi" iconColor="#5fcda2" title="关于我们" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
-				<list-cell icon="icon-pinglun-copy" iconColor="#5fcda2" title="帮助中心" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
+				<list-cell icon="icon-tuandui" iconColor="#5fcda2" title="关于我们" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
+				<list-cell icon="icon-bangzhu" iconColor="#5fcda2" title="帮助中心" @eventClick="navTo('/pages/mine/address/address')"></list-cell>
 				<!-- <list-cell icon="icon-share" iconColor="#9789f7" title="分享" tips="邀请好友赢10万大礼"></list-cell>
 				<list-cell icon="icon-pinglun-copy" iconColor="#ee883b" title="晒单" tips="晒单抢红包"></list-cell> -->
 				

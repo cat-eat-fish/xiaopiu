@@ -1,0 +1,35 @@
+@charset "UTF-8";
+@font-face {
+  font-family: yticon;
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://at.alicdn.com/t/font_1078604_w4kpxh0rafi.ttf") format("truetype");
+}
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.partition-line {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0rpx 0;
+}
+.partition-line .line-l, .partition-line .line-r {
+    width: 30%;
+    height: 1rpx;
+    margin: 25rpx auto;
+    background-color: #c3c3c3;
+}
+.partition-line .text {
+    color: #c3c3c3;
+}
+

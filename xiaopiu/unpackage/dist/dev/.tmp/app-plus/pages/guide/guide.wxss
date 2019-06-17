@@ -1,0 +1,34 @@
+
+button.data-v-6c576538::after {
+	border: none;
+}
+.swiperStyle.data-v-6c576538{
+	height: 100vh;
+	width: 100vw;
+}
+.transition.data-v-6c576538{
+	-webkit-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+}
+.swiperItem.data-v-6c576538{
+	position: relative;
+}
+.position_absolute.data-v-6c576538 {
+	position: absolute;
+}
+.img.data-v-6c576538{
+	width: 30%;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+}
+.text1.data-v-6c576538{
+	font-size: 5vh;
+	font-weight: bold;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+}
+.text2.data-v-6c576538{font-size: 3vh;position: absolute;top: 50%;left: 20%;}
+

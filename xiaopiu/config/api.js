@@ -1,7 +1,7 @@
 import {Ip} from "./base.js"
 // 使用
 // onLoad(){
-// 	console.log(this.getInfo())
+// 	this.getInfo()
 // },
 // methods:{
 // 	async getInfo(){

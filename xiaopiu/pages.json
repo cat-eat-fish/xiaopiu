@@ -1,6 +1,17 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/index/index/index",
+		    "style" : {}
+		},{
+		    "path" : "pages/guide/guide",
+		    "style" : {
+				"navigationStyle": "custom",
+				 "app-plus": {
+		            "titleNView": false //禁用原生导航栏
+		        }
+			}
+		},{
 			"path": "pages/tabBar/index/index",
 			"style": {
 				// #ifdef MP 
@@ -14,8 +25,7 @@
 					"softinputNavBar":"none"
 				}
 			}
-		},
-		{
+		},{
             "path" : "pages/tabBar/commodity/commodity",
             "style": {
             	"navigationBarTitleText": "分类"
@@ -23,7 +33,12 @@
         }
         ,{
             "path" : "pages/tabBar/release/release",
-            "style" : {}
+            "style" : {
+				"navigationStyle": "custom",
+				 "app-plus": {
+				    "titleNView": false //禁用原生导航栏
+				}
+			}
         }
         ,{
             "path" : "pages/tabBar/cart/cart",
@@ -230,13 +245,11 @@
 				"text": "发布"
 			},
 			//#endif
-			//#ifndef MP-WEIXIN
 			{
 				"pagePath": "pages/tabBar/release/release",
 				"iconPath": "static/img/tabBar/add.png",
 				"selectedIconPath": "static/img/tabBar/addactive.png"
 			},
-			//#endif
 	        {
 	            "pagePath" : "pages/tabBar/cart/cart",
 	            "text" : "购物车",

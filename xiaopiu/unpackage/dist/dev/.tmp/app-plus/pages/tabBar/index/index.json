@@ -4,6 +4,10 @@
   "titleNView": false,
   "softinputNavBar": "none",
   "usingComponents": {
-    "uni-indexed-list": "/components/uni-indexed-list/uni-indexed-list"
+    "uni-indexed-list": "/components/uni-indexed-list/uni-indexed-list",
+    "partition-line": "/components/partition-line",
+    "grid": "/components/grid",
+    "uni-notice-bar": "/components/uni-notice-bar/uni-notice-bar",
+    "uni-rate": "/components/uni-rate/uni-rate"
   }
 }

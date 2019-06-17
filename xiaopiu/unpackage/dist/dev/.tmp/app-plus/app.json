@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/index/index/index",
+    "pages/guide/guide",
     "pages/tabBar/index/index",
     "pages/tabBar/commodity/commodity",
     "pages/tabBar/release/release",
@@ -22,7 +24,8 @@
     "pages/mine/coupon/coupon",
     "pages/mine/deposit/deposit",
     "pages/mine/paySuccess/paySuccess",
-    "pages/commodity/productList/productList"
+    "pages/commodity/productList/productList",
+    "pages/index/lazy-load/lazy-load"
   ],
   "subPackages": [],
   "window": {
@@ -53,9 +56,8 @@
       },
       {
         "pagePath": "pages/tabBar/release/release",
-        "text": "发布",
-        "iconPath": "static/img/tabBar/tab_icon_5_5.png",
-        "selectedIconPath": "static/img/tabBar/tab_icon_5_5.png"
+        "iconPath": "static/img/tabBar/add.png",
+        "selectedIconPath": "static/img/tabBar/addactive.png"
       },
       {
         "pagePath": "pages/tabBar/cart/cart",
@@ -71,11 +73,15 @@
       }
     ]
   },
+  "networkTimeout": {
+    "request": 60000
+  },
+  "nvueCompiler": "weex",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "xiaopiu",
-  "compilerVersion": "1.9.9",
+  "compilerVersion": "2.0.1",
   "usingComponents": {}
 }

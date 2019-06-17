@@ -1,0 +1,1 @@
+<view class="partition-line" style="{{(bodyStyle)}}"><view class="line-l" style="{{(lineStyle)}}"></view><view class="text" style="{{(textStyle)}}"><rich-text nodes="{{text}}"></rich-text></view><view class="line-r" style="{{(lineStyle)}}"></view></view>

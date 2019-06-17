@@ -10,11 +10,15 @@
 		</view>
 		<view class="row b-b">
 			<text class="tit">地址</text>
-			<text @click="chooseLocation" class="input">
+			<text @click="showMulLinkageThreePicker" class="input">
 				{{addressData.addressName}}
 			</text>
 			<text class="yticon icon-shouhuodizhi"></text>
 		</view>
+		<!-- 三级联动 -->
+		<mpvue-city-picker :themeColor="themeColor" ref="mpvueCityPicker" :pickerValueDefault="cityPickerValueDefault"
+		 @onCancel="onCancel" @onConfirm="onConfirm"></mpvue-city-picker>
+		<!-- 三级联动 -->
 		<view class="row b-b"> 
 			<text class="tit">门牌号</text>
 			<input class="input" type="text" v-model="addressData.area" placeholder="楼号、门牌" placeholder-class="placeholder" />
@@ -29,13 +33,20 @@
 </template>
 
 <script>
+	import mpvueCityPicker from '@/components/mpvue-citypicker/mpvueCityPicker.vue'
+	import cityData from '@/common/city.data.js';
 	export default {
+		components: {mpvueCityPicker},
 		data() {
 			return {
+				mulLinkageTwoPicker: cityData,
+				cityPickerValueDefault: [0, 0, 0],
+				themeColor: '#007AFF',
+				
 				addressData: {
 					name: '',
 					mobile: '',
-					addressName: '在地图选择',
+					addressName: '选择地址',
 					address: '',
 					area: '',
 					default: false
@@ -55,10 +66,20 @@
 			})
 		},
 		methods: {
+			// 三级联动选择
+			showMulLinkageThreePicker() {
+				this.$refs.mpvueCityPicker.show()
+			},
+			onConfirm(e) {
+				this.addressData.addressName = e.label;
+				this.addressData.address = e.label;
+			},
+			onCancel(e) {
+			},
+			
 			switchChange(e){
 				this.addressData.default = e.detail;
 			},
-			
 			//地图选择地址
 			chooseLocation(){
 				uni.chooseLocation({

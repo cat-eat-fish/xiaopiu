@@ -19,7 +19,6 @@
 				<view class="icon tongzhi" @tap="toMsg"></view>
 			</view>
 		</view>
-		
 		<!-- 头部轮播 -->
 		<view class="carousel-section">
 			<!-- 标题栏和状态栏占位符 -->
@@ -38,154 +37,55 @@
 				<text class="num">{{swiperLength}}</text>
 			</view>
 		</view>
-		
-		<partition-line :text="mytext"></partition-line>
-		<!-- 分类 -->
+		<!-- 宫格 -->
 		<grid></grid>
-		<!-- <view class="cate-section">
-			<view class="cate-item">
-				<image src="/static/img/temp/c3.png"></image>
-				<text>智能手机</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c5.png"></image>
-				<text>功能手机</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c6.png"></image>
-				<text>智能设备</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c7.png"></image>
-				<text>电信平板</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c8.png"></image>
-				<text>办公设备</text>
-			</view>
-		</view>
-		<view class="cate-section">
-			<view class="cate-item">
-				<image src="/static/img/temp/c3.png"></image>
-				<text>电子教育</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c5.png"></image>
-				<text>配件中心</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c6.png"></image>
-				<text>我的主页</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c7.png"></image>
-				<text>积分</text>
-			</view>
-			<view class="cate-item">
-				<image src="/static/img/temp/c8.png"></image>
-				<text>其他</text>
-			</view>
-		</view> -->
-		<!-- 分类推荐楼层 -->
-		<view class="f-header m-t">
-			<image src="/static/img/temp/h1.png"></image>
-			<view class="tit-box">
-				<text class="tit">分类精选</text>
-				<text class="tit2">Competitive Products For You</text>
-			</view>
-			<text class="yticon icon-you"></text>
-		</view>
-		<view class="hot-floor">
-			<view class="floor-img-box">
-				<image class="floor-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409398864&di=4a12763adccf229133fb85193b7cc08f&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F19%2F20170319150032_MNwmn.jpeg" mode="scaleToFill"></image>
-			</view>
-			<scroll-view class="floor-list" scroll-x>
-				<view class="scoll-wrapper">
-					<view 
-						v-for="(item, index) in goodsList" :key="index"
-						class="floor-item"
-						@click="navToDetailPage(item)"
-					>
-						<image :src="item.image" mode="aspectFill"></image>
-						<text class="title clamp">{{item.title}}</text>
-						<text class="price">￥{{item.price}}</text>
-					</view>
-					<view class="more">
-						<text>查看全部</text>
-						<text>More+</text>
-					</view>
-				</view>
-			</scroll-view>
-		</view>
-		<view class="hot-floor">
-			<view class="floor-img-box">
-				<image class="floor-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409984228&di=dee176242038c2d545b7690b303d65ea&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F5ef4da9f17faaf4612f0d5046f4161e556e9bbcfdb5b-rHjf00_fw658" mode="scaleToFill"></image>
-			</view>
-			<scroll-view class="floor-list" scroll-x>
-				<view class="scoll-wrapper">
-					<view 
-						v-for="(item, index) in goodsList" :key="index"
-						class="floor-item"
-						@click="navToDetailPage(item)"
-					>
-						<image :src="item.image3" mode="aspectFill"></image>
-						<text class="title clamp">{{item.title}}</text>
-						<text class="price">￥{{item.price}}</text>
-					</view>
-					<view class="more">
-						<text>查看全部</text>
-						<text>More+</text>
-					</view>
-				</view>
-			</scroll-view>
-		</view>
-		<view class="hot-floor">
-			<view class="floor-img-box">
-				<image class="floor-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409794730&di=12b840ec4f5748ef06880b85ff63e34e&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dc03589ed568a8012060c82ac03c.jpg%40900w_1l_2o_100sh.jpg" mode="scaleToFill"></image>
-			</view>
-			<scroll-view class="floor-list" scroll-x>
-				<view class="scoll-wrapper">
-					<view 
-						v-for="(item, index) in goodsList" :key="index"
-						class="floor-item"
-						@click="navToDetailPage(item)"
-					>
-						<image :src="item.image2" mode="aspectFill"></image>
-						<text class="title clamp">{{item.title}}</text>
-						<text class="price">￥{{item.price}}</text>
-					</view>
-					<view class="more">
-						<text>查看全部</text>
-						<text>More+</text>
-					</view>
-				</view>
-			</scroll-view>
-		</view>
-
-		<!-- 猜你喜欢 -->
-		<view class="f-header m-t">
-			<image src="/static/img/temp/h1.png"></image>
-			<view class="tit-box">
-				<text class="tit">猜你喜欢</text>
-				<text class="tit2">Guess You Like It</text>
-			</view>
-			<text class="yticon icon-you"></text>
-		</view>
-		
+		<!-- 公告 -->
+		<uni-notice-bar :show-get-more="true" @getmore="getMore" :show-icon="true"   :single="true" text="公告.......................公告.......................公告.......................公告.......................s"></uni-notice-bar>
+		<!-- 热门商品 -->
+		<partition-line bodyStyle="padding:6upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门商品"></partition-line>
 		<view class="guess-section">
-			<view 
-				v-for="(item, index) in goodsList" :key="index"
-				class="guess-item"
-				@click="navToDetailPage(item)"
-			>
+			<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
 				<view class="image-wrapper">
+					<!-- <image class="image" :class="{lazy:!item.show}" :data-index="index" @load="imageLoad" :src="item.show?item.image:''" />
+					<image class="image placeholder" :class="{loaded:item.loaded}" :src="placeholderSrc" /> -->
 					<image :src="item.image" mode="aspectFill"></image>
 				</view>
 				<text class="title clamp">{{item.title}}</text>
-				<text class="price">￥{{item.price}}</text>
+				<text class="price">{{item.price}}</text>
 			</view>
 		</view>
-	
+		
+		<!-- 热门商品 -->
+		<partition-line bodyStyle="padding:10upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门求购信息"></partition-line>
+		<view class="guess-line">
+			<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
+				<view class="image-wrapper">
+					<image :src="item.image" mode="aspectFill"></image>
+				</view>
+				<view class="text">
+					<view class="title">
+						<view class="label">求购</view>
+						<view class="title-name">{{item.title}}</view>
+					</view>
+					<view class="business">
+						<view class="iconfont icongift" style="color:#e83131"></view>
+						<view class="business-name">郑州通讯</view>
+						<uni-rate value="2" size="12"></uni-rate>
+					</view>
+					<view class="other">
+						<view class="l">
+							<view class="label">1789次浏览</view>
+							<view class="label">5人报价</view>
+						</view>
+						<view class="addresss">
+							<view class="iconfont iconlocation-fill"></view>
+							<view class="address-text">郑州</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 切换省列表 -->
 		<view class="showList " v-if="isShowList">
 			<scroll-view class="scrollList" scroll-y :scroll-into-view="scrollViewId" :style="{height:winHeight + 'px'}">
 				<view class="uni-list">
@@ -213,17 +113,21 @@
 				{{lists[touchmoveIndex].letter}}
 			</view>
 		</view>
+		
+	
 	</view>
 </template>
 
 <script>
+	import uniRate from "@/components/uni-rate/uni-rate.vue"
+	import uniNoticeBar from "@/components/uni-notice-bar/uni-notice-bar.vue"
 	import grid from "@/components/grid.vue"
 	import partitionLine from "@/components/partition-line.vue";
 	import {test} from "@/config/api.js";
-	var airportDate = require("@/common/city.js");
+	var airportDate = require("@/common/province.js");
 	import uniIndexedList from "@/components/uni-indexed-list/uni-indexed-list.vue"
 	export default {
-		components: {uniIndexedList,partitionLine,grid},
+		components: {uniIndexedList,partitionLine,grid,uniNoticeBar,uniRate},
 		data() {
 			return {
 				mytext:"<view style='color:red;padding-right:5px' class='iconfont iconmeh'></view>我在测试",
@@ -263,13 +167,26 @@
 			this.loadData();
 		},
 		methods: {
+			
 			async getInfo(){
 				var info = await test(204262)
+				console.log(info)
+			},
+			
+			// 公告 getMore
+			getMore(){
+				uni.showToast({title:"查看更过"})
 			},
 			
 			getThis(item){
-				this.city = item.substr(0,2);
+				var data = item.substr(0,2)
+				this.city = data;
+				uni.showLoading({title:`查找中...`,mask:true,})
 				this.isShowList = false;
+				setTimeout(()=>{
+					uni.hideLoading()
+				},1000)
+				
 			},
 			touchStart(e) {
 				this.touchmove = true;
@@ -595,6 +512,51 @@
 	page {
 		background: #f5f5f5;
 	}
+	
+	// 单条数据
+	.guess-line{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 40upx 30upx 0;
+		background: #fff;
+		.guess-item{
+			display: flex;
+			width: 96%;
+			padding-bottom: 20px;
+			.image-wrapper{
+				width: 200upx;
+				height: 200upx;
+			}
+			.text{
+				width: 68%;
+				margin-left: 10upx;
+				.label{line-height: 26px;background: #c5bfbf;color: #424141; border-radius: 15px;width: 30%;margin: 0 10upx 0 0;text-align: center;}
+				.title{
+					display: flex;
+					.title-name{width:80%; white-space: nowrap;text-overflow: ellipsis;overflow: hidden}
+				}
+				.business{
+					display: flex;
+					.iconfont{font-size: 24px}
+					.business-name{margin: 24upx 0 0 10upx;font-size: 14px}
+					.uni-rate{margin: 28upx 0 0 20upx;display: flex;}
+				}
+				.other{display: flex;justify-content: space-between;
+					.l,.addresss{display: flex;}
+					.l{
+						width: 70%;
+						justify-content: start;
+						.label{font-size: 12px}
+						.label:first-child{width: 60%;}
+						.label:last-child{width:42%;}
+					}
+					.addresss{
+						.iconfont{color: #c5bfbf}
+					}
+				}
+			}
+		}
+	}
 	.m-t{
 		margin-top: 16upx;
 	}
@@ -792,148 +754,12 @@
 			color: $font-color-light;
 		}
 	}
-	/* 团购楼层 */
-	.group-section{
-		background: #fff;
-		.g-swiper{
-			height: 650upx;
-			padding-bottom: 30upx;
-		}
-		.g-swiper-item{
-			width: 100%;
-			padding: 0 30upx;
-			display:flex;
-		}
-		image{
-			width: 100%;
-			height: 460upx;
-			border-radius: 4px;
-		}
-		.g-item{
-			display:flex;
-			flex-direction: column;
-			overflow:hidden;
-		}
-		.left{
-			flex: 1.2;
-			margin-right: 24upx;
-			.t-box{
-				padding-top: 20upx;
-			}
-		}
-		.right{
-			flex: 0.8;
-			flex-direction: column-reverse;
-			.t-box{
-				padding-bottom: 20upx;
-			}
-		}
-		.t-box{
-			height: 160upx;
-			font-size: $font-base+2upx;
-			color: $font-color-dark;
-			line-height: 1.6;
-		}
-		.price{
-			color:$uni-color-primary;
-		}
-		.m-price{
-			font-size: $font-sm+2upx;
-			text-decoration: line-through;
-			color: $font-color-light;
-			margin-left: 8upx;
-		}
-		.pro-box{
-			display:flex;
-			align-items:center;
-			margin-top: 10upx;
-			font-size: $font-sm;
-			color: $font-base;
-			padding-right: 10upx;
-		}
-		.progress-box{
-			flex: 1;
-			border-radius: 10px;
-			overflow: hidden;
-			margin-right: 8upx;
-		}
-	}
-	/* 分类推荐楼层 */
-	.hot-floor{
-		width: 100%;
-		overflow: hidden;
-		margin-bottom: 20upx;
-		.floor-img-box{
-			width: 100%;
-			height:320upx;
-			position:relative;
-			&:after{
-				content: '';
-				position:absolute;
-				left: 0;
-				top: 0;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(rgba(255,255,255,.06) 30%, #f8f8f8);
-			}
-		}
-		.floor-img{
-			width: 100%;
-			height: 100%;
-		}
-		.floor-list{
-			white-space: nowrap;
-			padding: 20upx;
-			padding-right: 50upx;
-			border-radius: 6upx;
-			margin-top:-140upx;
-			margin-left: 30upx;
-			background: #fff;
-			box-shadow: 1px 1px 5px rgba(0,0,0,.2);
-			position: relative;
-			z-index: 1;
-		}
-		.scoll-wrapper{
-			display:flex;
-			align-items: flex-start;
-		}
-		.floor-item{
-			width: 180upx;
-			margin-right: 20upx;
-			font-size: $font-sm+2upx;
-			color: $font-color-dark;
-			line-height: 1.8;
-			image{
-				width: 180upx;
-				height: 180upx;
-				border-radius: 6upx;
-			}
-			.price{
-				color: $uni-color-primary;
-			}
-		}
-		.more{
-			display:flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			flex-shrink: 0;
-			width: 180upx;
-			height: 180upx;
-			border-radius: 6upx;
-			background: #f3f3f3;
-			font-size: $font-base;
-			color: $font-color-light;
-			text:first-child{
-				margin-bottom: 4upx;
-			}
-		}
-	}
+	
 	/* 猜你喜欢 */
 	.guess-section{
 		display:flex;
 		flex-wrap:wrap;
-		padding: 0 30upx;
+		padding: 40upx 30upx 0;
 		background: #fff;
 		.guess-item{
 			display:flex;
@@ -956,13 +782,13 @@
 			}
 		}
 		.title{
-			font-size: $font-lg;
-			color: $font-color-dark;
+			font-size: $font-sm;
+			color: $font-color-light;
 			line-height: 80upx;
 		}
 		.price{
 			font-size: $font-lg;
-			color: $uni-color-primary;
+			color: $font-color-dark;
 			line-height: 1;
 		}
 	}

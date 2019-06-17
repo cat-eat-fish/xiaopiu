@@ -34,7 +34,7 @@
 			font-family: yticon;
 			font-weight: normal;
 			font-style: normal;
-			src: url('https://at.alicdn.com/t/font_1078604_w4kpxh0rafi.ttf') format('truetype');
+			src: url('https://at.alicdn.com/t/font_1211716_nrpgwwnvf2p.ttf') format('truetype');
 	}
 	
 	/* 页面左右间距 */

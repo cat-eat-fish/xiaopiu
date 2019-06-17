@@ -1,0 +1,1 @@
+<view class="grid"><block wx:for="{{dataInfo}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="cate-item"><view class="{{[item.icon]}}"></view><text>{{item.text}}</text></view></block></view>

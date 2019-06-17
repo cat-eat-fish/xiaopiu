@@ -235,12 +235,14 @@ page {
 .header .before .back .icon {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 100%;
+    -webkit-border-radius: 100%;
+            border-radius: 100%;
 }
 .header .before .icon-btn .icon {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 100%;
+    -webkit-border-radius: 100%;
+            border-radius: 100%;
 }
 .header .after {
     background-color: #f1f1f1;
@@ -316,7 +318,8 @@ page {
             align-items: center;
     padding: 0 25rpx;
     height: 40rpx;
-    border-radius: 40rpx;
+    -webkit-border-radius: 40rpx;
+            border-radius: 40rpx;
     font-size: 22rpx;
     position: absolute;
     bottom: 20rpx;
@@ -381,7 +384,8 @@ page {
         color: #999;
         margin-right: 10rpx;
         font-size: 20rpx;
-        border-radius: 5rpx;
+        -webkit-border-radius: 5rpx;
+                border-radius: 5rpx;
 }
 .spec .row .content .sp view.on {
           border: solid 1rpx #f47952;
@@ -452,7 +456,8 @@ page {
 .comments .comment .user-info .face image {
         width: 40rpx;
         height: 40rpx;
-        border-radius: 100%;
+        -webkit-border-radius: 100%;
+                border-radius: 100%;
 }
 .comments .comment .user-info .username {
       font-size: 24rpx;
@@ -544,7 +549,8 @@ page {
 }
 .footer .btn {
     height: 80rpx;
-    border-radius: 40rpx;
+    -webkit-border-radius: 40rpx;
+            border-radius: 40rpx;
     overflow: hidden;
     display: -webkit-box;
     display: -webkit-flex;
@@ -638,7 +644,8 @@ page {
 .popup.spec .sp view {
       font-size: 28rpx;
       padding: 5rpx 20rpx;
-      border-radius: 8rpx;
+      -webkit-border-radius: 8rpx;
+              border-radius: 8rpx;
       margin: 0 30rpx 20rpx 0;
       background-color: #f6f6f6;
 }
@@ -721,7 +728,8 @@ page {
         width: 60rpx;
         height: 60rpx;
         background-color: #f3f3f3;
-        border-radius: 5rpx;
+        -webkit-border-radius: 5rpx;
+                border-radius: 5rpx;
 }
 .popup.spec .length .number .sub .icon, .popup.spec .length .number .add .icon {
           font-size: 30rpx;
@@ -938,7 +946,8 @@ page {
     background: #fa436a;
     font-size: 24rpx;
     color: #fff;
-    border-radius: 6rpx;
+    -webkit-border-radius: 6rpx;
+            border-radius: 6rpx;
     line-height: 1;
     -webkit-transform: translateY(-4rpx);
         -ms-transform: translateY(-4rpx);
@@ -975,6 +984,7 @@ page {
           align-items: center;
   color: #606266;
   background: -webkit-gradient(linear, left top, right top, from(#fdf5f6), to(#fbebf6));
+  background: -webkit-linear-gradient(left, #fdf5f6, #fbebf6);
   background: -o-linear-gradient(left, #fdf5f6, #fbebf6);
   background: linear-gradient(left, #fdf5f6, #fbebf6);
   padding: 12rpx 30rpx;
@@ -992,7 +1002,8 @@ page {
     height: 30rpx;
     line-height: 1;
     border: 1px solid #fa436a;
-    border-radius: 4rpx;
+    -webkit-border-radius: 4rpx;
+            border-radius: 4rpx;
     position: relative;
     overflow: hidden;
     font-size: 22rpx;
@@ -1002,7 +1013,8 @@ page {
       content: '';
       width: 50rpx;
       height: 50rpx;
-      border-radius: 50%;
+      -webkit-border-radius: 50%;
+              border-radius: 50%;
       left: -20rpx;
       top: -12rpx;
       position: absolute;
@@ -1155,7 +1167,8 @@ page {
             flex-shrink: 0;
     width: 80rpx;
     height: 80rpx;
-    border-radius: 100px;
+    -webkit-border-radius: 100px;
+            border-radius: 100px;
 }
 .eva-box .right {
     -webkit-box-flex: 1;
@@ -1250,7 +1263,8 @@ page {
           -ms-flex-negative: 0;
               flex-shrink: 0;
       margin-top: -40rpx;
-      border-radius: 8rpx;
+      -webkit-border-radius: 8rpx;
+              border-radius: 8rpx;
 }
 .attr-content .a-t .right {
       display: -webkit-box;
@@ -1316,7 +1330,8 @@ page {
       background: #eee;
       margin-right: 20rpx;
       margin-bottom: 20rpx;
-      border-radius: 100rpx;
+      -webkit-border-radius: 100rpx;
+              border-radius: 100rpx;
       min-width: 60rpx;
       height: 60rpx;
       padding: 0 20rpx;
@@ -1372,13 +1387,15 @@ page {
     bottom: 0;
     width: 100%;
     min-height: 40vh;
-    border-radius: 10rpx 10rpx 0 0;
+    -webkit-border-radius: 10rpx 10rpx 0 0;
+            border-radius: 10rpx 10rpx 0 0;
     background-color: #fff;
 }
 .popup .layer .btn {
       height: 66rpx;
       line-height: 66rpx;
-      border-radius: 100rpx;
+      -webkit-border-radius: 100rpx;
+              border-radius: 100rpx;
       background: #fa436a;
       font-size: 30rpx;
       color: #fff;
@@ -1443,7 +1460,8 @@ page {
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.5);
-  border-radius: 16rpx;
+  -webkit-border-radius: 16rpx;
+          border-radius: 16rpx;
 }
 .page-bottom .p-b-btn {
     display: -webkit-box;
@@ -1491,13 +1509,15 @@ page {
     display: -ms-flexbox;
     display: flex;
     height: 76rpx;
-    border-radius: 100px;
+    -webkit-border-radius: 100px;
+            border-radius: 100px;
     overflow: hidden;
     -webkit-box-shadow: 0 20rpx 40rpx -16rpx #fa436a;
             box-shadow: 0 20rpx 40rpx -16rpx #fa436a;
     -webkit-box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);
             box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);
     background: -webkit-gradient(linear, left top, right top, from(#ffac30), color-stop(#fa436a), to(#F56C6C));
+    background: -webkit-linear-gradient(left, #ffac30, #fa436a, #F56C6C);
     background: -o-linear-gradient(left, #ffac30, #fa436a, #F56C6C);
     background: linear-gradient(to right, #ffac30, #fa436a, #F56C6C);
     margin-left: 20rpx;
@@ -1532,7 +1552,8 @@ page {
       height: 100%;
       font-size: 28rpx;
       padding: 0;
-      border-radius: 0;
+      -webkit-border-radius: 0;
+              border-radius: 0;
       background: transparent;
 }
 
