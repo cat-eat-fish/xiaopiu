@@ -8,44 +8,55 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _cityData = _interopRequireDefault(__webpack_require__(/*! @/common/city.data.js */ "E:\\project\\project-xiaopiu\\xiaopiu\\common\\city.data.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var mpvueCityPicker = function mpvueCityPicker() {return Promise.all(/*! import() | components/mpvue-citypicker/mpvueCityPicker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mpvue-citypicker/mpvueCityPicker")]).then(__webpack_require__.bind(null, /*! @/components/mpvue-citypicker/mpvueCityPicker.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\mpvueCityPicker.vue"));};var _default =
 {
+  components: { mpvueCityPicker: mpvueCityPicker },
   data: function data() {
     return {
+      mulLinkageTwoPicker: _cityData.default,
+      cityPickerValueDefault: [0, 0, 0],
+      themeColor: '#007AFF',
+
       addressData: {
         name: '',
         mobile: '',
-        addressName: '在地图选择',
+        addressName: '选择地址',
         address: '',
         area: '',
         default: false } };
@@ -65,10 +76,20 @@ var _default =
 
   },
   methods: {
+    // 三级联动选择
+    showMulLinkageThreePicker: function showMulLinkageThreePicker() {
+      this.$refs.mpvueCityPicker.show();
+    },
+    onConfirm: function onConfirm(e) {
+      this.addressData.addressName = e.label;
+      this.addressData.address = e.label;
+    },
+    onCancel: function onCancel(e) {
+    },
+
     switchChange: function switchChange(e) {
       this.addressData.default = e.detail;
     },
-
     //地图选择地址
     chooseLocation: function chooseLocation() {var _this = this;
       uni.chooseLocation({

@@ -132,6 +132,9 @@
 
 
 
+
+
+
 var _api = __webpack_require__(/*! @/config/api.js */ "E:\\project\\project-xiaopiu\\xiaopiu\\config\\api.js");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniRate = function uniRate() {return __webpack_require__.e(/*! import() | components/uni-rate/uni-rate */ "components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/components/uni-rate/uni-rate.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\uni-rate\\uni-rate.vue"));};var uniNoticeBar = function uniNoticeBar() {return __webpack_require__.e(/*! import() | components/uni-notice-bar/uni-notice-bar */ "components/uni-notice-bar/uni-notice-bar").then(__webpack_require__.bind(null, /*! @/components/uni-notice-bar/uni-notice-bar.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\uni-notice-bar\\uni-notice-bar.vue"));};var grid = function grid() {return __webpack_require__.e(/*! import() | components/grid */ "components/grid").then(__webpack_require__.bind(null, /*! @/components/grid.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\grid.vue"));};var partitionLine = function partitionLine() {return __webpack_require__.e(/*! import() | components/partition-line */ "components/partition-line").then(__webpack_require__.bind(null, /*! @/components/partition-line.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\partition-line.vue"));};
 var airportDate = __webpack_require__(/*! @/common/province.js */ "E:\\project\\project-xiaopiu\\xiaopiu\\common\\province.js");var uniIndexedList = function uniIndexedList() {return __webpack_require__.e(/*! import() | components/uni-indexed-list/uni-indexed-list */ "components/uni-indexed-list/uni-indexed-list").then(__webpack_require__.bind(null, /*! @/components/uni-indexed-list/uni-indexed-list.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\uni-indexed-list\\uni-indexed-list.vue"));};var _default =
 
@@ -159,7 +162,8 @@ var airportDate = __webpack_require__(/*! @/common/province.js */ "E:\\project\\
       swiperCurrent: 0,
       swiperLength: 0,
       carouselList: [],
-      goodsList: [] };
+      goodsList: [],
+      statusHeight: 0 };
 
   },
 
@@ -172,6 +176,7 @@ var airportDate = __webpack_require__(/*! @/common/province.js */ "E:\\project\\
 
 
     this.statusHeight = plus.navigator.getStatusbarHeight();
+    // console.log(this.statusHeight) 
 
     this.loadData();
   },
@@ -179,7 +184,7 @@ var airportDate = __webpack_require__(/*! @/common/province.js */ "E:\\project\\
 
     getInfo: function () {var _getInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var info;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   (0, _api.test)(204262));case 2:info = _context.sent;
-                console.log(info, " at pages\\tabBar\\index\\index.vue:172");case 4:case "end":return _context.stop();}}}, _callee, this);}));function getInfo() {return _getInfo.apply(this, arguments);}return getInfo;}(),
+                console.log(info, " at pages\\tabBar\\index\\index.vue:177");case 4:case "end":return _context.stop();}}}, _callee, this);}));function getInfo() {return _getInfo.apply(this, arguments);}return getInfo;}(),
 
 
     // 公告 getMore
@@ -225,7 +230,11 @@ var airportDate = __webpack_require__(/*! @/common/province.js */ "E:\\project\\
       this.touchmoveIndex = -1;
     },
     showList: function showList() {
-      this.isShowList = true;
+      if (this.isShowList) {
+        return;
+      } else {
+        this.isShowList = true;
+      }
     },
     toMsg: function toMsg() {
       uni.navigateTo({ url: '/pages/mine/msg/msg' });

@@ -1,93 +1,97 @@
 <template>
-	<view class="container">
-		<!-- 状态栏 -->
-		<view class="status" :style="{ position: headerPosition,top:statusTop,opacity: afterHeaderOpacity}"></view>
-		<!-- 顶部导航栏 -->
-		<view class="header" :style="{ position: headerPosition,top:headerTop,opacity: afterHeaderOpacity }">
-			<!-- 定位城市 -->
-			<view class="addr" @tap="showList">
-				<view class="icon location"></view>
-				<view style="overflow: hidden;display: -webkit-box;height: 26px;width: 34px;">{{ city }}</view>
-			</view>
-			<!-- 搜索框 -->
-			<view class="input-box">
-				<input placeholder="默认关键字" :disabled="true" placeholder-style="color:#c0c0c0;" @tap="toSearch()"/>
-				<view class="icon search"></view>
-			</view>
-			<!-- 右侧图标按钮 -->
-			<view class="icon-btn">
-				<view class="icon tongzhi" @tap="toMsg"></view>
-			</view>
-		</view>
-		<!-- 头部轮播 -->
-		<view class="carousel-section">
-			<!-- 标题栏和状态栏占位符 -->
-			<view class="titleNview-placing"></view>
-			<!-- 背景色区域 -->
-			<view class="titleNview-background" :style="{backgroundColor:titleNViewBackground}"></view>
-			<swiper class="carousel" circular @change="swiperChange">
-				<swiper-item v-for="(item, index) in carouselList" :key="index" class="carousel-item" @click="navToDetailPage({title: '轮播广告'})">
-					<image :src="item.src" />
-				</swiper-item>
-			</swiper>
-			<!-- 自定义swiper指示器 -->
-			<view class="swiper-dots">
-				<text class="num">{{swiperCurrent+1}}</text>
-				<text class="sign">/</text>
-				<text class="num">{{swiperLength}}</text>
-			</view>
-		</view>
-		<!-- 宫格 -->
-		<grid></grid>
-		<!-- 公告 -->
-		<uni-notice-bar :show-get-more="true" @getmore="getMore" :show-icon="true"   :single="true" text="公告.......................公告.......................公告.......................公告.......................s"></uni-notice-bar>
-		<!-- 热门商品 -->
-		<partition-line bodyStyle="padding:6upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门商品"></partition-line>
-		<view class="guess-section">
-			<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
-				<view class="image-wrapper">
-					<!-- <image class="image" :class="{lazy:!item.show}" :data-index="index" @load="imageLoad" :src="item.show?item.image:''" />
-					<image class="image placeholder" :class="{loaded:item.loaded}" :src="placeholderSrc" /> -->
-					<image :src="item.image" mode="aspectFill"></image>
+	<view >
+		<view class="container" v-if="!isShowList">
+			<!-- 状态栏 -->
+			<view class="status" :style="{ position: headerPosition,top:statusTop,opacity: afterHeaderOpacity}"></view>
+			<!-- 顶部导航栏 -->
+			<view class="header" :style="{ position: headerPosition,top:headerTop,opacity: afterHeaderOpacity }">
+				<!-- 定位城市 -->
+				<view class="addr" @tap="showList">
+					<view class="icon location"></view>
+					<view style="overflow: hidden;display: -webkit-box;height: 26px;width: 34px;">{{ city }}</view>
 				</view>
-				<text class="title clamp">{{item.title}}</text>
-				<text class="price">{{item.price}}</text>
-			</view>
-		</view>
-		
-		<!-- 热门商品 -->
-		<partition-line bodyStyle="padding:10upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门求购信息"></partition-line>
-		<view class="guess-line">
-			<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
-				<view class="image-wrapper">
-					<image :src="item.image" mode="aspectFill"></image>
+				<!-- 搜索框 -->
+				<view class="input-box">
+					<input placeholder="默认关键字" :disabled="true" placeholder-style="color:#c0c0c0;" @tap="toSearch()"/>
+					<view class="icon search"></view>
 				</view>
-				<view class="text">
-					<view class="title">
-						<view class="label">求购</view>
-						<view class="title-name">{{item.title}}</view>
+				<!-- 右侧图标按钮 -->
+				<view class="icon-btn">
+					<view class="icon tongzhi" @tap="toMsg"></view>
+				</view>
+			</view>
+			<!-- 头部轮播 -->
+			<view class="carousel-section">
+				<!-- 标题栏和状态栏占位符 -->
+				<view class="titleNview-placing"></view>
+				<!-- 背景色区域 -->
+				<view class="titleNview-background" :style="{backgroundColor:titleNViewBackground}"></view>
+				<swiper class="carousel" circular @change="swiperChange">
+					<swiper-item v-for="(item, index) in carouselList" :key="index" class="carousel-item" @click="navToDetailPage({title: '轮播广告'})">
+						<image :src="item.src" />
+					</swiper-item>
+				</swiper>
+				<!-- 自定义swiper指示器 -->
+				<view class="swiper-dots">
+					<text class="num">{{swiperCurrent+1}}</text>
+					<text class="sign">/</text>
+					<text class="num">{{swiperLength}}</text>
+				</view>
+			</view>
+			<!-- 宫格 -->
+			<grid></grid>
+			<!-- 公告 -->
+			<uni-notice-bar :show-get-more="true" @getmore="getMore" :show-icon="true"   :single="true" text="近日，中国人民银行上海总部就进一步推进金融支持实体经济、防范化"></uni-notice-bar>
+			<!-- 热门商品 -->
+			<partition-line bodyStyle="padding:6upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门商品"></partition-line>
+			<view class="guess-section">
+				<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
+					<view class="image-wrapper">
+						<!-- <image class="image" :class="{lazy:!item.show}" :data-index="index" @load="imageLoad" :src="item.show?item.image:''" />
+						<image class="image placeholder" :class="{loaded:item.loaded}" :src="placeholderSrc" /> -->
+						<image :src="item.image" mode="aspectFill"></image>
 					</view>
-					<view class="business">
-						<view class="iconfont icongift" style="color:#e83131"></view>
-						<view class="business-name">郑州通讯</view>
-						<uni-rate value="2" size="12"></uni-rate>
+					<text class="title clamp">{{item.title}}</text>
+					<text class="price">{{item.price}}</text>
+				</view>
+			</view>
+			
+			<!-- 热门商品 -->
+			<partition-line bodyStyle="padding:10upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门求购信息"></partition-line>
+			<view class="guess-line">
+				<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
+					<view class="image-wrapper">
+						<image :src="item.image" mode="aspectFill"></image>
 					</view>
-					<view class="other">
-						<view class="l">
-							<view class="label">1789次浏览</view>
-							<view class="label">5人报价</view>
+					<view class="text">
+						<view class="title">
+							<view class="label">求购</view>
+							<view class="title-name">{{item.title}}</view>
 						</view>
-						<view class="addresss">
-							<view class="iconfont iconlocation-fill"></view>
-							<view class="address-text">郑州</view>
+						<view class="business">
+							<view class="iconfont icongift" style="color:#e83131"></view>
+							<view class="business-name">郑州通讯</view>
+							<uni-rate value="2" size="12"></uni-rate>
+						</view>
+						<view class="other">
+							<view class="l">
+								<view class="label">1789次浏览</view>
+								<view class="label">5人报价</view>
+							</view>
+							<view class="addresss">
+								<view class="iconfont iconlocation-fill"></view>
+								<view class="address-text">郑州</view>
+							</view>
 						</view>
 					</view>
 				</view>
 			</view>
+			
+			
 		</view>
 		<!-- 切换省列表 -->
-		<view class="showList " v-if="isShowList">
-			<scroll-view class="scrollList" scroll-y :scroll-into-view="scrollViewId" :style="{height:winHeight + 'px'}">
+		<view class="showList " v-if="isShowList"  :style="{top:statusHeight+'px'}">
+			<scroll-view class="scrollList" scroll-y :scroll-into-view="scrollViewId" :style="{height:'calc('+winHeight-100+'upx'+')'}">
 				<view class="uni-list">
 					<block v-for="(list, key) in lists" :key="key">
 						<block v-if="list.data.length">
@@ -107,14 +111,12 @@
 			<view class="uni-indexed-list-bar" :class="touchmove ? 'active' : ''" @touchstart="touchStart" @touchmove="touchMove"
 			 @touchend="touchEnd" @touchcancel="touchCancel" :style="{height:winHeight + 'px'}">
 				<text v-for="(list,key) in lists" :key="key" class="uni-indexed-list-text" :class="touchmoveIndex == key ? 'active' : ''"
-				 :style="{height:itemHeight + 'px',lineHeight:itemHeight + 'px'}">{{list.letter}}</text>
+				 :style="{height:itemHeight-statusHeight + 'px',lineHeight:itemHeight + 'px'}">{{list.letter}}</text>
 			</view>
 			<view class="uni-indexed-list-alert" v-if="touchmove">
 				{{lists[touchmoveIndex].letter}}
 			</view>
 		</view>
-		
-	
 	</view>
 </template>
 
@@ -150,7 +152,8 @@
 				swiperCurrent: 0,
 				swiperLength: 0,
 				carouselList: [],
-				goodsList: []
+				goodsList: [],
+				statusHeight:0,
 			};
 		},
 
@@ -163,6 +166,7 @@
 			
 			// #ifdef APP-PLUS
 			this.statusHeight = plus.navigator.getStatusbarHeight();
+			// console.log(this.statusHeight) 
 			// #endif
 			this.loadData();
 		},
@@ -216,7 +220,11 @@
 				this.touchmoveIndex = -1;
 			},
 			showList(){
-				this.isShowList = true
+				if(this.isShowList){
+					return;
+				}else{
+					this.isShowList = true
+				}
 			},
 			toMsg(){
 				uni.navigateTo({url: '/pages/mine/msg/msg'})
