@@ -505,7 +505,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6703,7 +6703,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -6724,14 +6724,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -6800,7 +6800,7 @@ var patch = function(oldVnode, vnode) {
         });
         var diffData = diff(data, mpData);
         if (Object.keys(diffData).length) {
-            if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
+            if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
                 console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
                     ']差量更新',
                     JSON.stringify(diffData));
@@ -9312,10 +9312,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\Json.js":
-/*!**************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/Json.js ***!
-  \**************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\Json.js":
+/*!**************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/Json.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9987,10 +9987,10 @@ var cateList = [{
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\common\\SDK\\amap-wx.js":
-/*!****************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/common/SDK/amap-wx.js ***!
-  \****************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\common\\SDK\\amap-wx.js":
+/*!****************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/common/SDK/amap-wx.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9999,10 +9999,10 @@ function AMapWX(a) {this.key = a.key, this.requestConfig = { key: a.key, s: "rsx
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\common\\SDK\\md5.min.js":
-/*!****************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/common/SDK/md5.min.js ***!
-  \****************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\common\\SDK\\md5.min.js":
+/*!****************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/common/SDK/md5.min.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10022,10 +10022,10 @@ function AMapWX(a) {this.key = a.key, this.requestConfig = { key: a.key, s: "rsx
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\common\\city.data.js":
-/*!**************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/common/city.data.js ***!
-  \**************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\common\\city.data.js":
+/*!**************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/common/city.data.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10034,177 +10034,676 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\common\\province.js":
-/*!*************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/common/province.js ***!
-  \*************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\common\\html-parser.js":
+/*!****************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/common/html-parser.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-module.exports = {
-  "list": [
-  {
-    "letter": "A",
-    "data": [
-    "澳门特别区",
-    "安徽省"] },
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /*
+                                                                                                      * HTML5 Parser By Sam Blowes
+                                                                                                      *
+                                                                                                      * Designed for HTML5 documents
+                                                                                                      *
+                                                                                                      * Original code by John Resig (ejohn.org)
+                                                                                                      * http://ejohn.org/blog/pure-javascript-html-parser/
+                                                                                                      * Original code by Erik Arvidsson, Mozilla Public License
+                                                                                                      * http://erik.eae.net/simplehtmlparser/simplehtmlparser.js
+                                                                                                      *
+                                                                                                      * ----------------------------------------------------------------------------
+                                                                                                      * License
+                                                                                                      * ----------------------------------------------------------------------------
+                                                                                                      *
+                                                                                                      * This code is triple licensed using Apache Software License 2.0,
+                                                                                                      * Mozilla Public License or GNU Public License
+                                                                                                      *
+                                                                                                      * ////////////////////////////////////////////////////////////////////////////
+                                                                                                      *
+                                                                                                      * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+                                                                                                      * use this file except in compliance with the License.  You may obtain a copy
+                                                                                                      * of the License at http://www.apache.org/licenses/LICENSE-2.0
+                                                                                                      *
+                                                                                                      * ////////////////////////////////////////////////////////////////////////////
+                                                                                                      *
+                                                                                                      * The contents of this file are subject to the Mozilla Public License
+                                                                                                      * Version 1.1 (the "License"); you may not use this file except in
+                                                                                                      * compliance with the License. You may obtain a copy of the License at
+                                                                                                      * http://www.mozilla.org/MPL/
+                                                                                                      *
+                                                                                                      * Software distributed under the License is distributed on an "AS IS"
+                                                                                                      * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+                                                                                                      * License for the specific language governing rights and limitations
+                                                                                                      * under the License.
+                                                                                                      *
+                                                                                                      * The Original Code is Simple HTML Parser.
+                                                                                                      *
+                                                                                                      * The Initial Developer of the Original Code is Erik Arvidsson.
+                                                                                                      * Portions created by Erik Arvidssson are Copyright (C) 2004. All Rights
+                                                                                                      * Reserved.
+                                                                                                      *
+                                                                                                      * ////////////////////////////////////////////////////////////////////////////
+                                                                                                      *
+                                                                                                      * This program is free software; you can redistribute it and/or
+                                                                                                      * modify it under the terms of the GNU General Public License
+                                                                                                      * as published by the Free Software Foundation; either version 2
+                                                                                                      * of the License, or (at your option) any later version.
+                                                                                                      *
+                                                                                                      * This program is distributed in the hope that it will be useful,
+                                                                                                      * but WITHOUT ANY WARRANTY; without even the implied warranty of
+                                                                                                      * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                                                                                                      * GNU General Public License for more details.
+                                                                                                      *
+                                                                                                      * You should have received a copy of the GNU General Public License
+                                                                                                      * along with this program; if not, write to the Free Software
+                                                                                                      * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+                                                                                                      *
+                                                                                                      * ----------------------------------------------------------------------------
+                                                                                                      * Usage
+                                                                                                      * ----------------------------------------------------------------------------
+                                                                                                      *
+                                                                                                      * // Use like so:
+                                                                                                      * HTMLParser(htmlString, {
+                                                                                                      *     start: function(tag, attrs, unary) {},
+                                                                                                      *     end: function(tag) {},
+                                                                                                      *     chars: function(text) {},
+                                                                                                      *     comment: function(text) {}
+                                                                                                      * });
+                                                                                                      *
+                                                                                                      * // or to get an XML string:
+                                                                                                      * HTMLtoXML(htmlString);
+                                                                                                      *
+                                                                                                      * // or to get an XML DOM Document
+                                                                                                      * HTMLtoDOM(htmlString);
+                                                                                                      *
+                                                                                                      * // or to inject into an existing document/DOM node
+                                                                                                      * HTMLtoDOM(htmlString, document);
+                                                                                                      * HTMLtoDOM(htmlString, document.body);
+                                                                                                      *
+                                                                                                      */
+// Regular Expressions for parsing tags and attributes
+var startTag = /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/;
+var endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/;
+var attr = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g; // Empty Elements - HTML 5
+
+var empty = makeMap('area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr'); // Block Elements - HTML 5
+// fixed by xxx 将 ins 标签从块级名单中移除
+
+var block = makeMap('a,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video'); // Inline Elements - HTML 5
+
+var inline = makeMap('abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var'); // Elements that you can, intentionally, leave open
+// (and which close themselves)
+
+var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr'); // Attributes that have their values filled in disabled="disabled"
+
+var fillAttrs = makeMap('checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected'); // Special Elements (can contain anything)
+
+var special = makeMap('script,style');
+function HTMLParser(html, handler) {
+  var index;
+  var chars;
+  var match;
+  var stack = [];
+  var last = html;
+
+  stack.last = function () {
+    return this[this.length - 1];
+  };
+
+  while (html) {
+    chars = true; // Make sure we're not in a script or style element
+
+    if (!stack.last() || !special[stack.last()]) {
+      // Comment
+      if (html.indexOf('<!--') == 0) {
+        index = html.indexOf('-->');
+
+        if (index >= 0) {
+          if (handler.comment) {
+            handler.comment(html.substring(4, index));
+          }
+
+          html = html.substring(index + 3);
+          chars = false;
+        } // end tag
+
+      } else if (html.indexOf('</') == 0) {
+        match = html.match(endTag);
+
+        if (match) {
+          html = html.substring(match[0].length);
+          match[0].replace(endTag, parseEndTag);
+          chars = false;
+        } // start tag
+
+      } else if (html.indexOf('<') == 0) {
+        match = html.match(startTag);
+
+        if (match) {
+          html = html.substring(match[0].length);
+          match[0].replace(startTag, parseStartTag);
+          chars = false;
+        }
+      }
+
+      if (chars) {
+        index = html.indexOf('<');
+        var text = index < 0 ? html : html.substring(0, index);
+        html = index < 0 ? '' : html.substring(index);
+
+        if (handler.chars) {
+          handler.chars(text);
+        }
+      }
+    } else {
+      html = html.replace(new RegExp('([\\s\\S]*?)<\/' + stack.last() + '[^>]*>'), function (all, text) {
+        text = text.replace(/<!--([\s\S]*?)-->|<!\[CDATA\[([\s\S]*?)]]>/g, '$1$2');
+
+        if (handler.chars) {
+          handler.chars(text);
+        }
+
+        return '';
+      });
+      parseEndTag('', stack.last());
+    }
+
+    if (html == last) {
+      throw 'Parse Error: ' + html;
+    }
+
+    last = html;
+  } // Clean up any remaining tags
 
 
-  {
-    "letter": "B",
-    "data": [
-    "北京"] },
+  parseEndTag();
+
+  function parseStartTag(tag, tagName, rest, unary) {
+    tagName = tagName.toLowerCase();
+
+    if (block[tagName]) {
+      while (stack.last() && inline[stack.last()]) {
+        parseEndTag('', stack.last());
+      }
+    }
+
+    if (closeSelf[tagName] && stack.last() == tagName) {
+      parseEndTag('', tagName);
+    }
+
+    unary = empty[tagName] || !!unary;
+
+    if (!unary) {
+      stack.push(tagName);
+    }
+
+    if (handler.start) {
+      var attrs = [];
+      rest.replace(attr, function (match, name) {
+        var value = arguments[2] ? arguments[2] : arguments[3] ? arguments[3] : arguments[4] ? arguments[4] : fillAttrs[name] ? name : '';
+        attrs.push({
+          name: name,
+          value: value,
+          escaped: value.replace(/(^|[^\\])"/g, '$1\\\"') // "
+        });
+
+      });
+
+      if (handler.start) {
+        handler.start(tagName, attrs, unary);
+      }
+    }
+  }
+
+  function parseEndTag(tag, tagName) {
+    // If no tag name is provided, clean shop
+    if (!tagName) {
+      var pos = 0;
+    } // Find the closest opened tag of the same type
+    else {
+        for (var pos = stack.length - 1; pos >= 0; pos--) {
+          if (stack[pos] == tagName) {
+            break;
+          }
+        }
+      }
+
+    if (pos >= 0) {
+      // Close all the open elements, up the stack
+      for (var i = stack.length - 1; i >= pos; i--) {
+        if (handler.end) {
+          handler.end(stack[i]);
+        }
+      } // Remove the open elements from the stack
 
 
-  {
-    "letter": "C",
-    "data": [
-    "重庆"] },
+      stack.length = pos;
+    }
+  }
+}
 
-  {
-    "letter": "D",
-    "data": [] },
+function makeMap(str) {
+  var obj = {};
+  var items = str.split(',');
 
+  for (var i = 0; i < items.length; i++) {
+    obj[items[i]] = true;
+  }
 
-  {
-    "letter": "E",
-    "data": [] },
+  return obj;
+}
 
+function removeDOCTYPE(html) {
+  return html.replace(/<\?xml.*\?>\n/, '').replace(/<!doctype.*>\n/, '').replace(/<!DOCTYPE.*>\n/, '');
+}
 
-  {
-    "letter": "F",
-    "data": [
-    "福建省"] },
+function parseAttrs(attrs) {
+  return attrs.reduce(function (pre, attr) {
+    var value = attr.value;
+    var name = attr.name;
 
-  {
-    "letter": "G",
-    "data": [
-    "甘肃省",
-    "广东省",
-    "广西壮族自治区",
-    "贵州省"] },
+    if (pre[name]) {
+      pre[name] = pre[name] + " " + value;
+    } else {
+      pre[name] = value;
+    }
 
+    return pre;
+  }, {});
+}
 
-  {
-    "letter": "H",
-    "data": [
-    "海南省",
-    "河北省",
-    "河南省",
-    "黑龙江省",
-    "湖北省",
-    "湖南省"] },
+function parseHtml(html) {
+  html = removeDOCTYPE(html);
+  var stacks = [];
+  var results = {
+    node: 'root',
+    children: [] };
 
-  {
-    "letter": "I",
-    "data": [] },
-
-
-  {
-    "letter": "J",
-    "data": [
-    "吉林省",
-    "江苏省",
-    "江西省"] },
+  HTMLParser(html, {
+    start: function start(tag, attrs, unary) {
+      var node = {
+        name: tag };
 
 
-  {
-    "letter": "K",
-    "data": [] },
+      if (attrs.length !== 0) {
+        node.attrs = parseAttrs(attrs);
+      }
+
+      if (unary) {
+        var parent = stacks[0] || results;
+
+        if (!parent.children) {
+          parent.children = [];
+        }
+
+        parent.children.push(node);
+      } else {
+        stacks.unshift(node);
+      }
+    },
+    end: function end(tag) {
+      var node = stacks.shift();
+      if (node.name !== tag) console.error('invalid state: mismatch end tag', " at common\\html-parser.js:303");
+
+      if (stacks.length === 0) {
+        results.children.push(node);
+      } else {
+        var parent = stacks[0];
+
+        if (!parent.children) {
+          parent.children = [];
+        }
+
+        parent.children.push(node);
+      }
+    },
+    chars: function chars(text) {
+      var node = {
+        type: 'text',
+        text: text };
 
 
-  {
-    "letter": "L",
-    "data": [
-    "辽宁省"] },
+      if (stacks.length === 0) {
+        results.children.push(node);
+      } else {
+        var parent = stacks[0];
 
-  {
-    "letter": "M",
-    "data": [] },
+        if (!parent.children) {
+          parent.children = [];
+        }
 
+        parent.children.push(node);
+      }
+    },
+    comment: function comment(text) {
+      var node = {
+        node: 'comment',
+        text: text };
 
-  {
-    "letter": "N",
-    "data": [
-    "内蒙古自治区",
-    "宁夏回族自治区"] },
+      var parent = stacks[0];
 
-  {
-    "letter": "O",
-    "data": [] },
+      if (!parent.children) {
+        parent.children = [];
+      }
 
+      parent.children.push(node);
+    } });
 
-  {
-    "letter": "P",
-    "data": [] },
+  return results.children;
+}var _default =
 
-
-  {
-    "letter": "Q",
-    "data": [
-    "青海省"] },
-
-  {
-    "letter": "R",
-    "data": [] },
-
-
-
-  {
-    "letter": "S",
-    "data": [
-    "上海",
-    "山西",
-    "山东省",
-    "陕西",
-    "四川省"] },
-
-
-  {
-    "letter": "T",
-    "data": [
-    "天津",
-    "台湾省"] },
-
-  {
-    "letter": "U",
-    "data": [] },
-
-
-  {
-    "letter": "V",
-    "data": [] },
-
-
-  {
-    "letter": "W",
-    "data": [] },
-
-
-  {
-    "letter": "X",
-    "data": [
-    "香港特别区",
-    "西藏自治区",
-    "新疆维吾尔自治区"] },
-
-  {
-    "letter": "Y",
-    "data": [
-    "云南省"] },
-
-  {
-    "letter": "Z",
-    "data": [
-    "浙江省"] }] };
+parseHtml;exports.default = _default;
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\city-data\\area.js":
-/*!****************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/components/mpvue-citypicker/city-data/area.js ***!
-  \****************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\common\\province.js":
+/*!*************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/common/province.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var province = [{
+  "initial": "A",
+  "list": [{
+    "code": "340000",
+    "name": "安徽",
+    "pinyin": "Anhui",
+    "label": "Anhui340000" },
+
+  {
+    "code": "820000",
+    "name": "澳门",
+    "pinyin": "Aaomen",
+    "label": "Aaomen820000" }] },
+
+
+
+{
+  "initial": "B",
+  "list": [{
+    "code": "110000",
+    "name": "北京",
+    "pinyin": "Beijing",
+    "label": "Beijing110000" }] },
+
+
+
+{
+  "initial": "C",
+  "list": [{
+    "code": "500000",
+    "name": "重庆",
+    "pinyin": "Chongqing",
+    "label": "Chongqing500000" }] },
+
+
+
+{
+  "initial": "D",
+  "list": [] },
+
+
+{
+  "initial": "E",
+  "list": [] },
+
+
+{
+  "initial": "F",
+  "list": [{
+    "code": "350000",
+    "name": "福建",
+    "pinyin": "Fujian",
+    "label": "Fujian350000" }] },
+
+
+
+
+{
+  "initial": "G",
+  "list": [{
+    "code": "440000",
+    "name": "广东",
+    "pinyin": "Guangdong",
+    "label": "Guangdong440000" },
+
+  {
+    "code": "450000",
+    "name": "广西",
+    "pinyin": "Guangxi",
+    "label": "Guangxi450000" },
+
+  {
+    "code": "520000",
+    "name": "贵州",
+    "pinyin": "Guizhou",
+    "label": "Guizhou520000" },
+  {
+    "code": "620000",
+    "name": "甘肃",
+    "pinyin": "Gansu",
+    "label": "Gansu620000" }] },
+
+
+
+
+{
+  "initial": "H",
+  "list": [{
+    "code": "130000",
+    "name": "河北",
+    "pinyin": "Hebei",
+    "label": "Hebei130000" },
+  {
+    "code": "230000",
+    "name": "黑龙江",
+    "pinyin": "Heilongjiang",
+    "label": "Heilongjiang230000" },
+  {
+    "code": "410000",
+    "name": "河南",
+    "pinyin": "Henan",
+    "label": "Henan410000" },
+  {
+    "code": "420000",
+    "name": "湖北",
+    "pinyin": "Hubei",
+    "label": "Hubei420000" },
+  {
+    "code": "430000",
+    "name": "湖南",
+    "pinyin": "Hunan",
+    "label": "Hunan430000" },
+  {
+    "code": "460000",
+    "name": "海南",
+    "pinyin": "Hainan",
+    "label": "Hainan460000" }] },
+
+
+
+
+{
+  "initial": "J",
+  "list": [{
+    "code": "220000",
+    "name": "吉林",
+    "pinyin": "Jilin",
+    "label": "Jilin220000" },
+  {
+    "code": "320000",
+    "name": "江苏",
+    "pinyin": "Jiangsu",
+    "label": "Jiangsu320000" },
+  {
+    "code": "360000",
+    "name": "江西",
+    "pinyin": "Jiangxi",
+    "label": "Jiangxi360000" }] },
+
+
+
+{
+  "initial": "K",
+  "list": [] },
+
+
+{
+  "initial": "L",
+  "list": [{
+    "code": "210000",
+    "name": "辽宁",
+    "pinyin": "Liaoning",
+    "label": "Liaoning210000" }] },
+
+
+
+
+{
+  "initial": "M",
+  "list": [] },
+
+
+{
+  "initial": "N",
+  "list": [{
+    "code": "150000",
+    "name": "内蒙古",
+    "pinyin": "Neimenggu",
+    "label": "Neimenggu150000" },
+
+  {
+    "code": "640000",
+    "name": "宁夏",
+    "pinyin": "Ningxia",
+    "label": "Ningxia640000" }] },
+
+
+
+{
+  "initial": "P",
+  "list": [] },
+
+{
+  "initial": "Q",
+  "list": [{
+    "code": "630000",
+    "name": "青海",
+    "pinyin": "Qinghai",
+    "label": "Qinghai630000" }] },
+
+
+
+{
+  "initial": "R",
+  "list": [] },
+
+{
+  "initial": "S",
+  "list": [{
+    "code": "140000",
+    "name": "山西",
+    "pinyin": "Shanxi",
+    "label": "Shanxi140000" },
+
+  {
+    "code": "310000",
+    "name": "上海",
+    "pinyin": "Shanghai",
+    "label": "Shanghai310000" },
+
+  {
+    "code": "370000",
+    "name": "山东",
+    "pinyin": "Shandong",
+    "label": "Shandong370000" },
+
+  {
+    "code": "510000",
+    "name": "四川",
+    "pinyin": "Sichuan",
+    "label": "Sichuan510000" },
+  {
+    "code": "610000",
+    "name": "陕西",
+    "pinyin": "Shanxi",
+    "label": "Shanxi610000" }] },
+
+
+
+{
+  "initial": "T",
+  "list": [{
+    "code": "120000",
+    "name": "天津",
+    "pinyin": "Tianjin",
+    "label": "Tianjin120000" },
+  {
+    "code": "710000",
+    "name": "台湾",
+    "pinyin": "Taiwan",
+    "label": "Taiwan710000" }] },
+
+
+
+{
+  "initial": "W",
+  "list": [] },
+
+{
+  "initial": "X",
+  "list": [{
+    "code": "540000",
+    "name": "西藏",
+    "pinyin": "Xizang",
+    "label": "Xizang540000" },
+  {
+    "code": "650000",
+    "name": "新疆",
+    "pinyin": "Xijiang",
+    "label": "Xijiang650000" },
+  {
+    "code": "810000",
+    "name": "香港",
+    "pinyin": "Xianggang",
+    "label": "Xianggang810000" }] },
+
+
+
+
+{
+  "initial": "Y",
+  "list": [{
+    "code": "530000",
+    "name": "云南",
+    "pinyin": "Yunnan",
+    "label": "Yunnan530000" }] },
+
+
+
+{
+  "initial": "Z",
+  "list": [{
+    "code": "330000",
+    "name": "浙江",
+    "pinyin": "Zhejiang",
+    "label": "Zhejiang330000" }] }];var _default =
+
+
+
+
+
+province;exports.default = _default;
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\city-data\\area.js":
+/*!****************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/components/mpvue-citypicker/city-data/area.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22754,10 +23253,10 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\city-data\\city.js":
-/*!****************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/components/mpvue-citypicker/city-data/city.js ***!
-  \****************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\city-data\\city.js":
+/*!****************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/components/mpvue-citypicker/city-data/city.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24268,10 +24767,10 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\city-data\\province.js":
-/*!********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/components/mpvue-citypicker/city-data/province.js ***!
-  \********************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\components\\mpvue-citypicker\\city-data\\province.js":
+/*!********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/components/mpvue-citypicker/city-data/province.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24418,15 +24917,15 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\config\\api.js":
-/*!********************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/config/api.js ***!
-  \********************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\config\\api.js":
+/*!********************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/config/api.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.test = test;var _base = __webpack_require__(/*! ./base.js */ "E:\\project\\project-xiaopiu\\xiaopiu\\config\\base.js");
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.test = test;var _base = __webpack_require__(/*! ./base.js */ "E:\\web\\xiaopiu\\xiaopiu\\config\\base.js");
 // 使用
 // onLoad(){
 // 	this.getInfo()
@@ -24455,10 +24954,10 @@ function test(userId) {
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\config\\base.js":
-/*!*********************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/config/base.js ***!
-  \*********************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\config\\base.js":
+/*!*********************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/config/base.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24467,20 +24966,20 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.Ip = void 
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js":
-/*!**************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js ***!
-  \**************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js":
+/*!**************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ "E:\\project\\project-xiaopiu\\xiaopiu\\store\\index.js"));
-var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "E:\\project\\project-xiaopiu\\xiaopiu\\App.vue"));
+var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ "E:\\web\\xiaopiu\\xiaopiu\\store\\index.js"));
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "E:\\web\\xiaopiu\\xiaopiu\\App.vue"));
 
-var _Json = _interopRequireDefault(__webpack_require__(/*! ./Json */ "E:\\project\\project-xiaopiu\\xiaopiu\\Json.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //测试用数据
+var _Json = _interopRequireDefault(__webpack_require__(/*! ./Json */ "E:\\web\\xiaopiu\\xiaopiu\\Json.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //测试用数据
 /**
  *  因工具函数属于公司资产, 所以直接在Vue实例挂载几个常用的函数
  *  所有测试用数据均存放于根目录json.js
@@ -24529,452 +25028,469 @@ createApp(app).$mount();
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fcommodity%2FproductList%2FproductList\"}":
-/*!***********************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fcommodity%2FproductList%2FproductList"} ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _productList = _interopRequireDefault(__webpack_require__(/*! ./pages/commodity/productList/productList.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\commodity\\productList\\productList.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_productList.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fguide%2Fguide\"}":
-/*!***********************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fguide%2Fguide"} ***!
-  \***********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _guide = _interopRequireDefault(__webpack_require__(/*! ./pages/guide/guide.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\guide\\guide.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_guide.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2FcreateOrder%2FcreateOrder\"}":
-/*!*******************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2FcreateOrder%2FcreateOrder"} ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _createOrder = _interopRequireDefault(__webpack_require__(/*! ./pages/index/createOrder/createOrder.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\index\\createOrder\\createOrder.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_createOrder.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Findex%2Findex\"}":
-/*!*******************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Findex%2Findex"} ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index/index.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\index\\index\\index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Flazy-load%2Flazy-load\"}":
-/*!***************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Flazy-load%2Flazy-load"} ***!
-  \***************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _lazyLoad = _interopRequireDefault(__webpack_require__(/*! ./pages/index/lazy-load/lazy-load.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\index\\lazy-load\\lazy-load.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_lazyLoad.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Fproduct%2Fproduct\"}":
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fcommodity%2FproductList%2FproductList\"}":
 /*!***********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Fproduct%2Fproduct"} ***!
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fcommodity%2FproductList%2FproductList"} ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _product = _interopRequireDefault(__webpack_require__(/*! ./pages/index/product/product.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\index\\product\\product.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_product.default);
+var _productList = _interopRequireDefault(__webpack_require__(/*! ./pages/commodity/productList/productList.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\commodity\\productList\\productList.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_productList.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Fsearch%2Fsearch\"}":
-/*!*********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Fsearch%2Fsearch"} ***!
-  \*********************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fguide%2Fguide\"}":
+/*!***********************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fguide%2Fguide"} ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _search = _interopRequireDefault(__webpack_require__(/*! ./pages/index/search/search.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\index\\search\\search.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_search.default);
+var _guide = _interopRequireDefault(__webpack_require__(/*! ./pages/guide/guide.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\guide\\guide.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_guide.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Faddress%2Faddress\"}":
-/*!**********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Faddress%2Faddress"} ***!
-  \**********************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2FcreateOrder%2FcreateOrder\"}":
+/*!*******************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2FcreateOrder%2FcreateOrder"} ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _address = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/address/address.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\address\\address.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_address.default);
+var _createOrder = _interopRequireDefault(__webpack_require__(/*! ./pages/index/createOrder/createOrder.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\index\\createOrder\\createOrder.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_createOrder.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2FaddressManage%2FaddressManage\"}":
-/*!**********************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2FaddressManage%2FaddressManage"} ***!
-  \**********************************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Findex%2Findex\"}":
+/*!*******************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Findex%2Findex"} ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _addressManage = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/addressManage/addressManage.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\addressManage\\addressManage.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_addressManage.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fchat%2Fchat\"}":
-/*!****************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fchat%2Fchat"} ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _chat = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/chat/chat.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\chat\\chat.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_chat.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fcoupon%2Fcoupon\"}":
-/*!********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fcoupon%2Fcoupon"} ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _coupon = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/coupon/coupon.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\coupon\\coupon.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_coupon.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fdeposit%2Fdeposit\"}":
-/*!**********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fdeposit%2Fdeposit"} ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _deposit = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/deposit/deposit.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\deposit\\deposit.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_deposit.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fkeep%2Fkeep\"}":
-/*!****************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fkeep%2Fkeep"} ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _keep = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/keep/keep.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\keep\\keep.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_keep.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Flogin%2Flogin\"}":
-/*!******************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Flogin%2Flogin"} ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/login/login.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\login\\login.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_login.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fmsg%2Fmsg\"}":
-/*!**************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fmsg%2Fmsg"} ***!
-  \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _msg = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/msg/msg.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\msg\\msg.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_msg.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2FmyQR%2FmyQR\"}":
-/*!****************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2FmyQR%2FmyQR"} ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _myQR = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/myQR/myQR.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\myQR\\myQR.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_myQR.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Forder%2Forder\"}":
-/*!******************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Forder%2Forder"} ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _order = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/order/order.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\order\\order.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_order.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2FpaySuccess%2FpaySuccess\"}":
-/*!****************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2FpaySuccess%2FpaySuccess"} ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _paySuccess = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/paySuccess/paySuccess.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\paySuccess\\paySuccess.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_paySuccess.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fregister%2Fregister\"}":
-/*!************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fregister%2Fregister"} ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _register = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/register/register.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\register\\register.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_register.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fresetpasswd%2Fresetpasswd\"}":
-/*!******************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fresetpasswd%2Fresetpasswd"} ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _resetpasswd = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/resetpasswd/resetpasswd.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\resetpasswd\\resetpasswd.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_resetpasswd.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fsetting%2Fsetting\"}":
-/*!**********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fsetting%2Fsetting"} ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _setting = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/setting/setting.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\mine\\setting\\setting.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_setting.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Fcart%2Fcart\"}":
-/*!******************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Fcart%2Fcart"} ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _cart = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/cart/cart.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\tabBar\\cart\\cart.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_cart.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Fcommodity%2Fcommodity\"}":
-/*!****************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Fcommodity%2Fcommodity"} ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _commodity = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/commodity/commodity.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\tabBar\\commodity\\commodity.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_commodity.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Findex%2Findex\"}":
-/*!********************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Findex%2Findex"} ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/index/index.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\tabBar\\index\\index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index/index.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\index\\index\\index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Fmine%2Fmine\"}":
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Flazy-load%2Flazy-load\"}":
+/*!***************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Flazy-load%2Flazy-load"} ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _lazyLoad = _interopRequireDefault(__webpack_require__(/*! ./pages/index/lazy-load/lazy-load.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\index\\lazy-load\\lazy-load.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_lazyLoad.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2FnoticeDesc%2FnoticeDesc\"}":
+/*!*****************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2FnoticeDesc%2FnoticeDesc"} ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _noticeDesc = _interopRequireDefault(__webpack_require__(/*! ./pages/index/noticeDesc/noticeDesc.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\index\\noticeDesc\\noticeDesc.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_noticeDesc.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Fproduct%2Fproduct\"}":
+/*!***********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Fproduct%2Fproduct"} ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _product = _interopRequireDefault(__webpack_require__(/*! ./pages/index/product/product.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\index\\product\\product.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_product.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Findex%2Fsearch%2Fsearch\"}":
+/*!*********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Findex%2Fsearch%2Fsearch"} ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _search = _interopRequireDefault(__webpack_require__(/*! ./pages/index/search/search.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\index\\search\\search.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_search.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Faddress%2Faddress\"}":
+/*!**********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Faddress%2Faddress"} ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _address = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/address/address.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\address\\address.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_address.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2FaddressManage%2FaddressManage\"}":
+/*!**********************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2FaddressManage%2FaddressManage"} ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _addressManage = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/addressManage/addressManage.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\addressManage\\addressManage.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_addressManage.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fchat%2Fchat\"}":
+/*!****************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fchat%2Fchat"} ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _chat = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/chat/chat.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\chat\\chat.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_chat.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fcoupon%2Fcoupon\"}":
+/*!********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fcoupon%2Fcoupon"} ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _coupon = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/coupon/coupon.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\coupon\\coupon.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_coupon.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fdeposit%2Fdeposit\"}":
+/*!**********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fdeposit%2Fdeposit"} ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _deposit = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/deposit/deposit.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\deposit\\deposit.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_deposit.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fkeep%2Fkeep\"}":
+/*!****************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fkeep%2Fkeep"} ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _keep = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/keep/keep.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\keep\\keep.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_keep.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Flogin%2Flogin\"}":
+/*!******************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Flogin%2Flogin"} ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/login/login.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\login\\login.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_login.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fmsg%2Fmsg\"}":
+/*!**************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fmsg%2Fmsg"} ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _msg = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/msg/msg.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\msg\\msg.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_msg.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2FmyQR%2FmyQR\"}":
+/*!****************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2FmyQR%2FmyQR"} ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _myQR = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/myQR/myQR.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\myQR\\myQR.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_myQR.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Forder%2Forder\"}":
+/*!******************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Forder%2Forder"} ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _order = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/order/order.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\order\\order.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_order.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2FpaySuccess%2FpaySuccess\"}":
+/*!****************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2FpaySuccess%2FpaySuccess"} ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _paySuccess = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/paySuccess/paySuccess.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\paySuccess\\paySuccess.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_paySuccess.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fregister%2Fregister\"}":
+/*!************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fregister%2Fregister"} ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _register = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/register/register.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\register\\register.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_register.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fresetpasswd%2Fresetpasswd\"}":
 /*!******************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Fmine%2Fmine"} ***!
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fresetpasswd%2Fresetpasswd"} ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _mine = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/mine/mine.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\tabBar\\mine\\mine.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _resetpasswd = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/resetpasswd/resetpasswd.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\resetpasswd\\resetpasswd.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_resetpasswd.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2Fmine%2Fsetting%2Fsetting\"}":
+/*!**********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2Fmine%2Fsetting%2Fsetting"} ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _setting = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/setting/setting.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\mine\\setting\\setting.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_setting.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Fcart%2Fcart\"}":
+/*!******************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Fcart%2Fcart"} ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/cart/cart.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\tabBar\\cart\\cart.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_cart.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Fcommodity%2Fcommodity\"}":
+/*!****************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Fcommodity%2Fcommodity"} ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _commodity = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/commodity/commodity.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\tabBar\\commodity\\commodity.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_commodity.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Findex%2Findex\"}":
+/*!********************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Findex%2Findex"} ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/index/index.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\tabBar\\index\\index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Fmine%2Fmine\"}":
+/*!******************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Fmine%2Fmine"} ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _mine = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/mine/mine.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\tabBar\\mine\\mine.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_mine.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Frelease%2Frelease\"}":
-/*!************************************************************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Frelease%2Frelease"} ***!
-  \************************************************************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\main.js?{\"page\":\"pages%2FtabBar%2Frelease%2Frelease\"}":
+/*!************************************************************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/main.js?{"page":"pages%2FtabBar%2Frelease%2Frelease"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "E:\\web\\xiaopiu\\xiaopiu\\pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _release = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/release/release.vue */ "E:\\project\\project-xiaopiu\\xiaopiu\\pages\\tabBar\\release\\release.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _release = _interopRequireDefault(__webpack_require__(/*! ./pages/tabBar/release/release.vue */ "E:\\web\\xiaopiu\\xiaopiu\\pages\\tabBar\\release\\release.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_release.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\pages.json":
-/*!*****************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/pages.json ***!
-  \*****************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\pages.json":
+/*!*****************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/pages.json ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24983,10 +25499,10 @@ createPage(_release.default);
 
 /***/ }),
 
-/***/ "E:\\project\\project-xiaopiu\\xiaopiu\\store\\index.js":
-/*!*********************************************************!*\
-  !*** E:/project/project-xiaopiu/xiaopiu/store/index.js ***!
-  \*********************************************************/
+/***/ "E:\\web\\xiaopiu\\xiaopiu\\store\\index.js":
+/*!*********************************************!*\
+  !*** E:/web/xiaopiu/xiaopiu/store/index.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

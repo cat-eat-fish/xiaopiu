@@ -1,6 +1,6 @@
 <template>
 	<view :class="{'my-tabs':true,'space-between':formatBe}">
-		<view  v-for="(item,index) in getModelData" :key="index" :class="{'tab-item':true,'active':activeIndex==index}" @tap="tap(index)">
+		<view  v-for="(item,index) in getModelData" :key="index" :class="{'tab-item':true,'active':initIndex==index}" @tap="tap(index)">
 			{{item.label}}
 		</view>
 	</view>
@@ -8,11 +8,19 @@
 
 <script>
 	export default {
-		props:['modelData','initIndex'],
+		props:{
+			modelData:{
+				
+			},
+			initIndex:{
+				default:0,
+				type:Number
+			},
+		},
 		data() {
 			return {
 				defaultInfo:{data:[{label:"测试",},{label:"测试"},{label:"测试"},],},
-				activeIndex:0,//默认索引
+				// initIndex:0,//默认索引
 			}
 		},
 		created() {
@@ -30,14 +38,14 @@
 		},
 		methods: {
 			tap(index){
-				if(index!==this.activeIndex)this.$emit("change",index);
-				this.activeIndex=index;
+				if(index!==this.initIndex)this.$emit("change",index);
+				this.initIndex=index;
 			},
 			/**
-			 * @name 初始化activeIndex
+			 * @name 初始化initIndex
 			 */
 			initActive(){
-				this.activeIndex=this.initIndex||this.activeIndex
+				this.initIndex=this.initIndex||this.initIndex
 			}
 		},
 	}

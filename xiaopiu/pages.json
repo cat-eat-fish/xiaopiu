@@ -218,6 +218,44 @@
             "path" : "pages/index/lazy-load/lazy-load",
             "style" : {}
         }
+        ,{
+            "path" : "pages/index/noticeDesc/noticeDesc",
+            "style": {
+            	"navigationBarTitleText": "详情",
+            	"app-plus": {
+            		"titleNView": {
+            			"type": "transparent",
+            			"buttons": [{
+            				"type": "share"
+            			}]
+            		}
+            	},
+            	"h5": {
+            		"titleNView": {
+            			"type": "transparent",
+            			"buttons": []
+            		}
+            	}
+            }
+        }
+        ,{
+            "path" : "pages/mine/business/business",
+            "style" : {
+				"navigationBarTitleText": "商家信息"
+			}
+        }
+        ,{
+            "path" : "pages/mine/purchase/purchase",
+            "style" : {
+				"navigationBarTitleText": "求购详情"
+			}
+        }
+        ,{
+            "path" : "pages/release/releaseGet/releaseGet",
+            "style" : {
+				"navigationBarTitleText": "发布求购"
+			}
+        }
     ],
 	"tabBar" : {
 	    "color": "#333333",

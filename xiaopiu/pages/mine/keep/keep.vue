@@ -73,7 +73,29 @@
 					{id:1,name:"冰鲜专卖店",img:"/static/img/shop/1.jpg"},
 					{id:2,name:"果蔬天下",img:"/static/img/shop/2.jpg"},
 					{id:3,name:"办公耗材用品店",img:"/static/img/shop/3.jpg"},
-					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"}
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
+					{id:4,name:"天天看好书",img:"/static/img/shop/4.jpg"},
 				],
 				headerTop:0,
 				//控制滑动效果
@@ -195,11 +217,7 @@
 	}
 </script>
 <style lang="scss">
-	view{
-		display: flex;
-		flex-wrap: wrap;
-		
-	}
+	view{display: flex;flex-wrap: wrap;}
 	page{position: relative;background-color: #f5f5f5;}
 	@font-face {font-family:"HMfont-home";src:url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2');}
 	.icon {
@@ -415,3 +433,4 @@
 	}
 	
 </style>
+

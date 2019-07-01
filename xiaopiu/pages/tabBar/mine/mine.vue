@@ -108,7 +108,8 @@
 			}
 		},
 		onLoad(){
-			
+			// var user = uni.getStorageSync("UserInfo");
+			// console.log(user,this.userInfo)
 		},
 		// #ifndef MP
 		onNavigationBarButtonTap(e) {

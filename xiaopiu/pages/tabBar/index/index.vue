@@ -17,7 +17,7 @@
 				</view>
 				<!-- 右侧图标按钮 -->
 				<view class="icon-btn">
-					<view class="icon tongzhi" @tap="toMsg"></view>
+					<view class="icon tongzhi" @tap="tos"></view>
 				</view>
 			</view>
 			<!-- 头部轮播 -->
@@ -26,7 +26,8 @@
 				<view class="titleNview-placing"></view>
 				<!-- 背景色区域 -->
 				<view class="titleNview-background" :style="{backgroundColor:titleNViewBackground}"></view>
-				<swiper class="carousel" circular @change="swiperChange">
+				
+				<swiper class="carousel" :autoplay="true" circular @change="swiperChange">
 					<swiper-item v-for="(item, index) in carouselList" :key="index" class="carousel-item" @click="navToDetailPage({title: '轮播广告'})">
 						<image :src="item.src" />
 					</swiper-item>
@@ -41,7 +42,7 @@
 			<!-- 宫格 -->
 			<grid></grid>
 			<!-- 公告 -->
-			<uni-notice-bar :show-get-more="true" @getmore="getMore" :show-icon="true"   :single="true" text="近日，中国人民银行上海总部就进一步推进金融支持实体经济、防范化"></uni-notice-bar>
+			<scrollmsg :msg="noticeList" type='vertical'></scrollmsg>
 			<!-- 热门商品 -->
 			<partition-line bodyStyle="padding:6upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门商品"></partition-line>
 			<view class="guess-section">
@@ -53,6 +54,7 @@
 					</view>
 					<text class="title clamp">{{item.title}}</text>
 					<text class="price">{{item.price}}</text>
+					<text class="num">共有5个商家在售</text>
 				</view>
 			</view>
 			
@@ -60,9 +62,10 @@
 			<partition-line bodyStyle="padding:10upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门求购信息"></partition-line>
 			<view class="guess-line">
 				<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
-					<view class="image-wrapper">
-						<image :src="item.image" mode="aspectFill"></image>
-					</view>
+					<!-- <view class="image-wrapper"> -->
+						<image class="image-wrapper" :src="item.image" mode="aspectFill"></image>
+					<!-- </view> -->
+					
 					<view class="text">
 						<view class="title">
 							<view class="label">求购</view>
@@ -90,7 +93,8 @@
 			
 		</view>
 		<!-- 切换省列表 -->
-		<view class="showList " v-if="isShowList"  :style="{top:statusHeight+'px'}">
+		<uni-select v-if="isShowList" class="showList " :style="{top:statusHeight+'px'}" :navAttr="navAttr" :listAttr="listAttr" :quickPanelData="quickPanelData" :listData="listData" @chooseItem="chooseItem"></uni-select>
+		<!-- <view class="showList " v-if="false"  :style="{top:statusHeight+'px'}">
 			<scroll-view class="scrollList" scroll-y :scroll-into-view="scrollViewId" :style="{height:'calc('+winHeight-100+'upx'+')'}">
 				<view class="uni-list">
 					<block v-for="(list, key) in lists" :key="key">
@@ -116,11 +120,14 @@
 			<view class="uni-indexed-list-alert" v-if="touchmove">
 				{{lists[touchmoveIndex].letter}}
 			</view>
-		</view>
+		</view> -->
 	</view>
-</template>
+</template>  
 
 <script>
+	import scrollmsg from '@/components/scrollmsg.vue'
+	import province from '@/common/province.js'
+	import uniSelect from '@/components/lee-select/lee-select.vue'
 	import uniRate from "@/components/uni-rate/uni-rate.vue"
 	import uniNoticeBar from "@/components/uni-notice-bar/uni-notice-bar.vue"
 	import grid from "@/components/grid.vue"
@@ -129,9 +136,59 @@
 	var airportDate = require("@/common/province.js");
 	import uniIndexedList from "@/components/uni-indexed-list/uni-indexed-list.vue"
 	export default {
-		components: {uniIndexedList,partitionLine,grid,uniNoticeBar,uniRate},
+		components: {uniIndexedList,partitionLine,grid,uniNoticeBar,uniRate,uniSelect,scrollmsg},
 		data() {
 			return {
+				
+				// 城市选择
+				listData: province,
+				quickPanelData:[
+					{
+					title:'当前城市',
+					navName: '当前',
+					data:['上海'],
+					height: 150
+				},
+				{
+					title:'热门城市',
+					navName: '热',
+					data:['上海','北京','成都','昆明','西安'],
+					height: 224
+				}
+				],
+				listAttr: {
+					listBackgroundColor:'none',
+					titleFontSize: 28,
+					titleColor: '#333',
+					titleHeight: 60,
+					titleBackground: '#ccc',
+					titlePadding: 20,
+					itemHeight: 80,
+					itemFontSize: 28,
+					itemBorderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+					itemColor: '#333'
+				},
+				navAttr: {
+					enable: true,
+					backgroundColor: 'rgba(0, 0, 0, 0.4)',
+					color: '#333',
+					activeColor: '#fff',
+					fontSize: 20,
+					itemPadding:'6 0',
+					borderRadius: 100,
+					padding:'20 0'
+				},
+				// 城市选择
+				// 公告列表
+				noticeList:[
+					{id:0,url:"",text:"uni-app行业峰会频频亮相，开发者反响热烈",},
+					{id:1,url:"",text:"DCloud完成B2轮融资，uni-app震撼发布",},
+					{id:2,url:"",text:"36氪热文榜推荐、CSDN公号推荐 DCloud CEO文章",},
+				],
+				// 公告列表
+				
+				
+				
 				mytext:"<view style='color:red;padding-right:5px' class='iconfont iconmeh'></view>我在测试",
 				
 				lists: airportDate.list,
@@ -166,22 +223,30 @@
 			
 			// #ifdef APP-PLUS
 			this.statusHeight = plus.navigator.getStatusbarHeight();
-			// console.log(this.statusHeight) 
 			// #endif
 			this.loadData();
 		},
+		onBackPress() {
+			//监听back键，关闭弹出
+			if (this.isShowList) {
+				this.isShowList = false;
+				return true
+			}
+		},
 		methods: {
-			
+			// 切换城市
+			chooseItem(item) {
+				this.city = item;
+				uni.showLoading({title:`查找中...`,mask:true,icon:"none"})
+				this.isShowList = false;
+				setTimeout(()=>{
+					uni.hideLoading()
+				},1000)
+			},
 			async getInfo(){
 				var info = await test(204262)
 				console.log(info)
 			},
-			
-			// 公告 getMore
-			getMore(){
-				uni.showToast({title:"查看更过"})
-			},
-			
 			getThis(item){
 				var data = item.substr(0,2)
 				this.city = data;
@@ -225,6 +290,9 @@
 				}else{
 					this.isShowList = true
 				}
+			},
+			tos(){
+				uni.navigateTo({url: '/pages/mine/msg/msg'})
 			},
 			toMsg(){
 				uni.navigateTo({url: '/pages/mine/msg/msg'})
@@ -289,7 +357,9 @@
 </script>
 
 <style lang="scss">
-	
+	.content {
+		height: 100vh;
+	}
 	.showList {
 		position: fixed;
 		top: 0;
@@ -565,6 +635,9 @@
 			}
 		}
 	}
+	.uni-noticebar__content-icon{
+		margin-top: -3px;
+	}
 	.m-t{
 		margin-top: 16upx;
 	}
@@ -728,6 +801,7 @@
 			.price{
 				color: $uni-color-primary;
 			}
+			
 		}
 	}
 	
@@ -799,6 +873,8 @@
 			color: $font-color-dark;
 			line-height: 1;
 		}
+		
+		.num{color: $font-color-light}
 	}
 	
 

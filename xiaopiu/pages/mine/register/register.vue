@@ -115,7 +115,7 @@
 						},
 						fail:(e)=>{
 							uni.hideLoading()
-							console.log('error');
+							// console.log('error');
 							//新建UserList
 							uni.setStorage({
 								key: 'UserList',

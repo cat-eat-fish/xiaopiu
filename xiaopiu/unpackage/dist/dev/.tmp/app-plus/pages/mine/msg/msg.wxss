@@ -11,21 +11,30 @@
 /* 边框颜色 */
 /* 图片加载中颜色 */
 /* 行为相关颜色 */
-page {
+page.data-v-42d12a86 {
   background-color: #f7f7f7;
   padding-bottom: 30rpx;
 }
-.allmsg {
+.page.data-v-42d12a86 {
   width: 100%;
-  padding: 88rpx 3% 0;
+  height: 100%;
+  min-height: 100vh;
 }
-.allmsg .chat {
+.uni-swiper-wrapper.data-v-42d12a86, .swiper.data-v-42d12a86 {
+  height: 100%;
+  min-height: 100vh;
+}
+.allmsg.data-v-42d12a86 {
+  width: 100%;
+  padding: 0rpx 3% 0;
+}
+.allmsg .chat.data-v-42d12a86 {
     width: 100%;
     height: 150rpx;
     padding: 20rpx 0;
     border-bottom: solid 1rpx #eaeaea;
 }
-.allmsg .chat .row {
+.allmsg .chat .row.data-v-42d12a86 {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -35,27 +44,27 @@ page {
           -ms-flex-pack: start;
               justify-content: flex-start;
 }
-.allmsg .chat .row .left {
+.allmsg .chat .row .left.data-v-42d12a86 {
         -webkit-flex-shrink: 0;
             -ms-flex-negative: 0;
                 flex-shrink: 0;
         width: 100rpx;
         height: 100rpx;
 }
-.allmsg .chat .row .left image {
+.allmsg .chat .row .left image.data-v-42d12a86 {
           width: 100rpx;
           height: 100rpx;
           -webkit-border-radius: 20rpx;
                   border-radius: 20rpx;
 }
-.allmsg .chat .row .right {
+.allmsg .chat .row .right.data-v-42d12a86 {
         -webkit-flex-shrink: 1;
             -ms-flex-negative: 1;
                 flex-shrink: 1;
         width: 98%;
         padding-left: 2%;
 }
-.allmsg .chat .row .right .top {
+.allmsg .chat .row .right .top.data-v-42d12a86 {
           width: 100%;
           display: -webkit-box;
           display: -webkit-flex;
@@ -70,14 +79,14 @@ page {
               -ms-flex-align: end;
                   align-items: flex-end;
 }
-.allmsg .chat .row .right .top .usernam {
+.allmsg .chat .row .right .top .usernam.data-v-42d12a86 {
             font-size: 26rpx;
 }
-.allmsg .chat .row .right .top .time {
+.allmsg .chat .row .right .top .time.data-v-42d12a86 {
             font-size: 22rpx;
             color: #bebebe;
 }
-.allmsg .chat .row .right .bottom {
+.allmsg .chat .row .right .bottom.data-v-42d12a86 {
           width: 100%;
           height: 40rpx;
           display: -webkit-box;
@@ -93,11 +102,11 @@ page {
               -ms-flex-align: center;
                   align-items: center;
 }
-.allmsg .chat .row .right .bottom .msg {
+.allmsg .chat .row .right .bottom .msg.data-v-42d12a86 {
             font-size: 25rpx;
             color: #777;
 }
-.allmsg .chat .row .right .bottom .tis {
+.allmsg .chat .row .right .bottom .tis.data-v-42d12a86 {
             width: 35rpx;
             height: 35rpx;
             font-size: 22rpx;
@@ -118,10 +127,10 @@ page {
             -webkit-border-radius: 100%;
                     border-radius: 100%;
 }
-.notice {
-  padding: 88rpx 0 0;
+.notice.data-v-42d12a86 {
+  padding: 0rpx 0 0;
 }
-.notice .notice-item {
+.notice .notice-item.data-v-42d12a86 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -136,7 +145,7 @@ page {
         -ms-flex-align: center;
             align-items: center;
 }
-.notice .time {
+.notice .time.data-v-42d12a86 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -154,14 +163,14 @@ page {
     font-size: 26rpx;
     color: #7d7d7d;
 }
-.notice .content {
+.notice .content.data-v-42d12a86 {
     width: 710rpx;
     padding: 0 24rpx;
     background-color: #fff;
     -webkit-border-radius: 4rpx;
             border-radius: 4rpx;
 }
-.notice .title {
+.notice .title.data-v-42d12a86 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -174,19 +183,19 @@ page {
     font-size: 32rpx;
     color: #303133;
 }
-.notice .img-wrapper {
+.notice .img-wrapper.data-v-42d12a86 {
     width: 100%;
     height: 260rpx;
     position: relative;
 }
-.notice .pic {
+.notice .pic.data-v-42d12a86 {
     display: block;
     width: 100%;
     height: 100%;
     -webkit-border-radius: 6rpx;
             border-radius: 6rpx;
 }
-.notice .cover {
+.notice .cover.data-v-42d12a86 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -208,14 +217,14 @@ page {
     font-size: 36rpx;
     color: #fff;
 }
-.notice .introduce {
+.notice .introduce.data-v-42d12a86 {
     display: inline-block;
     padding: 16rpx 0;
     font-size: 28rpx;
     color: #606266;
     line-height: 38rpx;
 }
-.notice .bot {
+.notice .bot.data-v-42d12a86 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -233,7 +242,7 @@ page {
     color: #707070;
     position: relative;
 }
-.notice .more-icon {
+.notice .more-icon.data-v-42d12a86 {
     font-size: 32rpx;
 }
 

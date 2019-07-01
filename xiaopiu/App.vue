@@ -27,6 +27,8 @@
 </script>
 
 <style lang="scss">
+	// .uni-swiper-wrapper{min-height: 100vh}
+	// .uni-swiper-wrapper{height: 100%}
 	/*每个页面公共css */
 	@import url("./static/font/ant/iconfont.css");
 	@import url("./common/uni.css");
@@ -34,7 +36,7 @@
 			font-family: yticon;
 			font-weight: normal;
 			font-style: normal;
-			src: url('https://at.alicdn.com/t/font_1211716_nrpgwwnvf2p.ttf') format('truetype');
+			src: url('https://at.alicdn.com/t/font_1211716_l7ot28sogi.ttf') format('truetype');
 	}
 	
 	/* 页面左右间距 */

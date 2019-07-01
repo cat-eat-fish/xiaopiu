@@ -11,6 +11,9 @@
 /* 边框颜色 */
 /* 图片加载中颜色 */
 /* 行为相关颜色 */
+.content {
+  height: 100vh;
+}
 .showList {
   position: fixed;
   top: 0;
@@ -352,6 +355,9 @@ page {
 }
 .guess-line .guess-item .text .other .addresss .iconfont {
           color: #c5bfbf;
+}
+.uni-noticebar__content-icon {
+  margin-top: -3px;
 }
 .m-t {
   margin-top: 16rpx;

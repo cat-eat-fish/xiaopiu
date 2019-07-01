@@ -25,7 +25,8 @@
     "pages/mine/deposit/deposit",
     "pages/mine/paySuccess/paySuccess",
     "pages/commodity/productList/productList",
-    "pages/index/lazy-load/lazy-load"
+    "pages/index/lazy-load/lazy-load",
+    "pages/index/noticeDesc/noticeDesc"
   ],
   "subPackages": [],
   "window": {

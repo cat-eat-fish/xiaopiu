@@ -24,8 +24,8 @@
 			<view class="text">— 快速登录 —</view>
 			<view class="list">
 				<view @tap="oauthLogin('weixin')" v-if="showProvider.weixin" class="icon weixin"></view>
-				<view @tap="oauthLogin('qq')" v-if="showProvider.qq" class="icon qq"></view>
-				<view @tap="oauthLogin('sinaweibo')" v-if="showProvider.sinaweibo" class="icon sinaweibo"></view>
+				<!-- <view @tap="oauthLogin('qq')" v-if="showProvider.qq" class="icon qq"></view>
+				<view @tap="oauthLogin('sinaweibo')" v-if="showProvider.sinaweibo" class="icon sinaweibo"></view> -->
 				<!-- <view @tap="oauthLogin('xiaomi')" v-if="showProvider.xiaomi" class="icon xiaomi"></view> -->
 			</view>
 		</view>
@@ -70,8 +70,7 @@
 			},
 			async oauthLogin(provider){
 				uni.showLoading();
-				// this.logining = true;
-				const {phone, password} = this;
+				// const {phone, password} = this;
 				/* 数据验证模块
 				if(!this.$api.match({
 					mobile,
@@ -81,51 +80,49 @@
 					return;
 				}
 				*/
-				const sendData = {
-					mobile,
-					password
-				};
-				const result = await this.$api.json('userInfo');
-				if(result.status === 1){
-					this.login(result.data);
-				    uni.navigateBack();  
-				}else{
-					this.$api.msg(result.msg);
-					this.logining = false;
-				}
+				// const sendData = {phone,password};
+				// const result = await this.$api.json('userInfo');
+				// if(result.status === 1){
+				// 	this.login(result.data);
+				//     uni.navigateBack();  
+				// }else{
+				// 	this.$api.msg(result.msg);
+				// 	this.logining = false;
+				// }
 				//第三方登录
+				var _this = this;
 				uni.login({
 					provider: provider,
 					success: (loginRes)=>{
-						console.log("success: "+JSON.stringify(loginRes));
+						// console.log(loginRes);
 						//案例直接获取用户信息，一般不是在APP端直接获取用户信息，比如微信，获取一个code，传递给后端，后端再去请求微信服务器获取用户信息
 						uni.getUserInfo({
 							provider: provider,
 							success: (infoRes)=>{
-								console.log('用户信息：' + JSON.stringify(infoRes.userInfo));
+								// console.log(infoRes.userInfo);
+								var data =  {
+									nickname:infoRes.userInfo.nickName,
+									portrait:infoRes.userInfo.avatarUrl,
+									signature:'个性签名',
+									city:infoRes.userInfo.city,
+								}
 								uni.setStorage({
 									key: 'UserInfo',
-									data: {
-										username:infoRes.userInfo.nickName,
-										face:infoRes.userInfo.avatarUrl,
-										signature:'个性签名',
-										integral:0,
-										balance:0,
-										envelope:0
-									},
+									data,
 									success: function () {
+										_this.login(data);
 										uni.hideLoading()
 										uni.showToast({title: '登录成功',icon:"success"});
 										setTimeout(function(){
 											uni.navigateBack();
-										},300)
+										},200)
 									}
 								});
 							}
 						});
 					},
 					fail:(e)=>{
-						console.log("fail: "+JSON.stringify(e));
+						// console.log("fail: "+JSON.stringify(e));
 					}
 				});
 			},

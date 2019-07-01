@@ -1,6 +1,57 @@
 <template>
 	<view class="page">
-		<tab :modelData="modelData" @change="change" :initIndex="initIndex"></tab>
+		<cat-tab @change="tagger" :initIndex="initIndex" :hasan="false" :navList="modelData" bg="#333">
+			<!-- <swiper :current="initIndex" class="swiper row" duration="300" :circular="true" indicator-color="rgba(255,255,255,0)" indicator-active-color="rgba(255,255,255,0)" @change="swiperChange">
+				<swiper-item > -->
+					<view class="allmsg" v-if="initIndex == 0">
+						<view class="chat" v-for="(chat,index) in chatList" :key="index">
+								<view class="row" @tap="toChat(chat)">
+									<view class="left">
+										<image :src="chat.face"></image>
+									</view>
+									<view class="right">
+										<view class="top">
+											<view class="username">{{chat.username}}</view>
+											<view class="time">{{chat.time}}</view>
+										</view>
+										<view class="bottom">
+											<view class="msg">{{chat.msg}}</view>
+											<view class="tis" v-if="chat.tisNum>0">{{chat.tisNum}}</view>
+										</view>
+									</view>
+								</view>
+							</view>
+					</view>
+				<!-- </swiper-item>
+				<swiper-item > -->
+					<view class="allmsg" v-if="initIndex == 1">
+					</view>
+				<!-- </swiper-item>
+				<swiper-item> -->
+					<view class="notice" v-if="initIndex == 2">
+							<view class="notice-item" v-for="(item,index) in noticeData" :key="index">
+								<text class="time">{{item.time}}</text>
+								<view class="content">
+									<text class="title">{{item.title}}</text>
+									<view class="img-wrapper">
+										<image class="pic" :src="item.img"></image>
+										<view class="cover" v-if="!item.static">
+											活动结束
+										</view>
+									</view>
+									<text class="introduce" v-if="item.desc != ''">{{item.desc}}</text>
+									<view class="bot b-t" >
+										<text>查看详情</text>
+										<text class="more-icon yticon icon-you"></text>
+									</view>
+								</view>
+							</view>
+					</view>
+				<!-- </swiper-item>
+			</swiper> -->
+		</cat-tab>
+		
+		<!-- <tab :modelData="modelData" @change="change" :initIndex="initIndex"></tab>
 		<view class="allmsg" v-if="initIndex == 0">
 			<view class="chat" v-for="(chat,index) in chatList" :key="index">
 					<view class="row" @tap="toChat(chat)">
@@ -20,6 +71,8 @@
 					</view>
 				</view>
 		</view>
+		<view class="allmsg" v-if="initIndex == 1">
+		</view>
 		<view class="notice" v-if="initIndex == 2">
 				<view class="notice-item" v-for="(item,index) in noticeData" :key="index">
 					<text class="time">{{item.time}}</text>
@@ -38,14 +91,15 @@
 						</view>
 					</view>
 				</view>
-			</view>
+		</view> -->
 	</view>
 </template>
 
 <script>
+	import catTab from "@/components/cat-tab.vue"
 	import tab from "@/components/tab/tab.vue";
 	export default {
-		components:{tab},
+		components:{tab,catTab},
 		data() {
 			return {
 				noticeData:[
@@ -53,8 +107,8 @@
 					{id:1,time:"昨天 12:30",static:false,title:"新品上市，全场满199减50",img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3761064275,227090144&fm=26&gp=0.jpg",desc:"",href:"",},
 					{id:2,time:"2019-07-26 12:30",static:false,title:"新品上市，全场满199减50",img:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556465765776&di=57bb5ff70dc4f67dcdb856e5d123c9e7&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01fd015aa4d95fa801206d96069229.jpg%401280w_1l_2o_100sh.jpg",desc:"新品上市全场2折起，新品上市全场2折起，新品上市全场2折起，新品上市全场2折起，新品上市全场2折起",href:"",},
 				],
-				modelData:[{label:"订单消息"},{label:"行业资讯"},{label:"系统通知"}],
-				initIndex:0,
+				modelData:[{text:"订单消息"},{text:"系统公告"},{text:"系统通知"}],
+				initIndex:0	,
 				chatList:[
 					{
 						uid:1,
@@ -187,18 +241,26 @@
 		        uni.stopPullDownRefresh();
 		    }, 1000);
 		},
-		onLoad() {
-
+		onLoad(e) {
+			if(e.initIndex){
+				this.initIndex = Number(e.initIndex);
+			}
 		},
 		methods: {
+			tagger(i) {
+				this.initIndex = i;
+			},
+			swiperChange(e) {
+				let {
+					current
+				} = e.target;
+				this.initIndex = current;
+			},
 			change(e){
-				uni.showLoading({
-					title: '加载中',
-					mask: true,
-				});
-				setTimeout(()=>{
-					uni.hideLoading();
-				},3000)
+				// uni.showLoading({title: '加载中',mask: true,});
+				// setTimeout(()=>{
+				// 	uni.hideLoading();
+				// },3000)
 				this.initIndex = e;
 			},
 			toChat(chat){
@@ -210,11 +272,14 @@
 	}
 </script>
 
-<style  lang="scss">
+<style  lang="scss" scoped>
 	page {background-color: #f7f7f7;padding-bottom: 30upx;}
+	.page{width: 100%;height: 100%;min-height: 100vh;}
+	.uni-swiper-wrapper,.swiper{height: 100%;min-height: 100vh}
+	
 	.allmsg{
 		width: 100%;
-		padding: 88upx 3% 0;
+		padding: 0upx 3% 0;
 			.chat{
 				width: 100%;
 				height: 150upx;
@@ -278,7 +343,7 @@
 		
 	}
 	.notice{
-		padding: 88upx 0 0;
+		padding:0upx 0 0;
 		.notice-item {display: flex;flex-direction: column;align-items: center;}
 		.time {display: flex;align-items: center;justify-content: center;height: 80upx;padding-top: 10upx;font-size: 26upx;color: #7d7d7d;}
 		.content {width: 710upx;padding: 0 24upx;background-color: #fff;border-radius: 4upx;}
