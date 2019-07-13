@@ -256,6 +256,29 @@
 				"navigationBarTitleText": "发布求购"
 			}
         }
+        ,{
+            "path" : "pages/release/purchaseD/purchaseD",
+            "style" : {
+				"navigationBarTitleText": "求购详情"
+			}
+        }
+        ,{
+            "path" : "pages/mine/orderD/orderD",
+            "style" : {
+				"navigationBarTitleText": "订单详情"
+			}
+        }
+        ,{
+            "path" : "pages/mine/evaluate/evaluate",
+            "style" : {
+				"navigationBarTitleText": "发表评价"
+			}
+        },{
+			"path": "platforms/app-plus/feedback/feedback",
+			"style": {
+				"navigationBarTitleText": "问题反馈"
+			}
+		}
     ],
 	"tabBar" : {
 	    "color": "#333333",
@@ -270,24 +293,24 @@
 	            "selectedIconPath" : "static/img/tabBar/tab-home-current.png"
 	        },
 	        {
-	            "pagePath" : "pages/tabBar/commodity/commodity",
-	            "text" : "分类",
+	            "pagePath" : "pages/commodity/productList/productList",
+	            "text" : "商品",
 	            "iconPath" : "static/img/tabBar/tab-cate.png",
 	            "selectedIconPath" : "static/img/tabBar/tab-cate-current.png"
 	        },
-			//#ifdef MP-WEIXIN
-			{
-				"pagePath": "pages/tabBar/release/release",
-				"iconPath": "static/img/tabBar/add.png",
-				"selectedIconPath": "static/img/tabBar/addactive.png",
-				"text": "发布"
-			},
-			//#endif
-			{
-				"pagePath": "pages/tabBar/release/release",
-				"iconPath": "static/img/tabBar/add.png",
-				"selectedIconPath": "static/img/tabBar/addactive.png"
-			},
+			// //#ifdef MP-WEIXIN
+			// {
+			// 	"pagePath": "pages/tabBar/release/release",
+			// 	"iconPath": "static/img/tabBar/add.png",
+			// 	"selectedIconPath": "static/img/tabBar/addactive.png",
+			// 	"text": "发布"
+			// },
+			// //#endif
+			// {
+			// 	"pagePath": "pages/tabBar/release/release",
+			// 	"iconPath": "static/img/tabBar/add.png",
+			// 	"selectedIconPath": "static/img/tabBar/addactive.png"
+			// },
 	        {
 	            "pagePath" : "pages/tabBar/cart/cart",
 	            "text" : "购物车",

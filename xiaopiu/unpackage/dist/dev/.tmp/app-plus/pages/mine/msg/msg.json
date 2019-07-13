@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "消息中心",
-  "usingComponents": {
-    "tab": "/components/tab/tab",
-    "cat-tab": "/components/cat-tab"
-  }
-}

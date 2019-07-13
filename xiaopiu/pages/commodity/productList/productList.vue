@@ -1,76 +1,119 @@
 <template>
 	<view>
-       <!-- <view class="header" :style="{position:headerPosition}">
-			<view class="input-box">
-				<input placeholder="默认关键字" placeholder-style="color:#c0c0c0;" @tap="toSearch()"/>
-				<view class="icon search"></view>
-			</view>
-			<view class="icon-btn">
-				<view class="icon tongzhi" @tap="toMsg"></view>
-			</view>
-		</view> -->
-		<!-- 占位 -->
-		<!-- <view class="place"></view> -->
-		<view class="navbar" :style="{position:headerPosition,top:headerTop}">
-			<view class="nav-item" :class="{current: filterIndex === 0}" @click="tabClick(0)">
-				综合排序
-			</view>
-			<view class="nav-item" :class="{current: filterIndex === 1}" @click="tabClick(1)">
-				销量优先
-			</view>
-			<view class="nav-item" :class="{current: filterIndex === 2}" @click="tabClick(2)">
-				<text>价格</text>
-				<view class="p-box">
-					<text :class="{active: priceOrder === 1 && filterIndex === 2}" class="yticon icon-shang"></text>
-					<text :class="{active: priceOrder === 2 && filterIndex === 2}" class="yticon icon-shang xia"></text>
-				</view>
-			</view>
-			<text class="cate-item yticon icon-fenlei1" @click="toggleCateMask('show')"></text>
+		<catTab  :navList="navList" :initIndex="initIndex" @change="tabChange" />
+		<view v-show="initIndex == 0">
+			<cat-filter :menuList="menuList"></cat-filter>
+			<list />
 		</view>
-		<view class="goods-list">
-			<view 
-				v-for="(item, index) in goodsList" :key="index"
-				class="goods-item"
-				@click="navToDetailPage(item)"
-			>
-				<view class="image-wrapper">
-					<image :src="item.image" mode="aspectFill"></image>
-				</view>
-				<text class="title clamp">{{item.title}}</text>
-				<view class="price-box">
-					<text class="price">{{item.price}}</text>
-					<text>已售 {{item.sales}}</text>
-				</view>
-			</view>
+		<view v-show="initIndex == 1">
+			<cat-filter :menuList="menuList"></cat-filter>
+			<list2 />
 		</view>
-		<uni-load-more :status="loadingType"></uni-load-more>
 		
-		<view class="cate-mask" :class="cateMaskState===0 ? 'none' : cateMaskState===1 ? 'show' : ''" @click="toggleCateMask">
-			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
-				<scroll-view scroll-y class="cate-list">
-					<view v-for="item in cateList" :key="item.id">
-						<view class="cate-item b-b two">{{item.name}}</view>
-						<view 
-							v-for="tItem in item.child" :key="tItem.id" 
-							class="cate-item b-b" 
-							:class="{active: tItem.id==cateId}"
-							@click="changeCate(tItem)">
-							{{tItem.name}}
-						</view>
-					</view>
-				</scroll-view>
-			</view>
-		</view>
+		
 	</view>
 </template>
 <script>
+	import list from "@/pagecomponents/list2.vue"
+	import list2 from "@/pagecomponents/getList.vue"
+	import catTab from "@/components/cat-tab.vue"
+	import catFilter from "@/components/cat-filter/cat-filter.vue"
 	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 	//高德SDK
 	import amap from '@/common/SDK/amap-wx.js';
 	export default {
-		components: {uniLoadMore},
+		components: {list,list2,uniLoadMore,catFilter,catTab},
 		data() {
 			return {
+				navList:[
+					{text:'商品列表'},
+					{text:'求购列表'},
+				],
+				initIndex:0,
+				menuList:[
+						{
+							'title': '筛选',
+							isScroll:true,
+							'key': 'salary',
+							len:3,
+							mode:"scroll",
+							'detailList': [
+								{
+									label:"A",value:0,
+									childer:[
+										{
+											label:"A1",value:'00',childer:[
+												{label:"A11",value:'000',},
+												{label:"A12",value:'001',}
+											],
+										},
+										{label:"A2",value:'01',childer:[
+												{label:"A21",value:'010',},
+												{label:"A22",value:'011',}
+											],
+										}
+									],
+								},{
+									label:"B",value:0,
+									childer:[
+										{
+											label:"B1",value:'00',childer:[
+												{label:"B11",value:'000',},
+												{label:"B12",value:'001',}
+											],
+										},{
+											
+											label:"B2",value:'01',childer:[
+												{label:"B11",value:'010',},
+												{label:"B12",value:'011',}
+											],
+										}
+									],
+								},{
+									label:"C",value:0,
+									childer:[
+										{
+											label:"C1",value:'00',childer:[
+												{label:"C11",value:'000',},
+												{label:"C12",value:'001',}
+											],
+										},{
+											label:"C2",value:'01',childer:[
+												{label:"C11",value:'010',},
+												{label:"C12",value:'011',}
+											],
+										}
+									],
+								},
+								
+							]
+						},
+						{
+							'title': '综合排序',
+							'key': 'sort',
+							'isSort': true,
+							'reflexTitle': true,
+							'defaultSelectedIndex': 2,
+							'detailList': [{
+									'title': '默认排序',
+									'value': ''
+								},
+								{
+									'title': '发布时间',
+									'value': 'add_time'
+								},
+								{
+									'title': '薪资最高',
+									'value': 'wages_up'
+								},
+								{
+									'title': '离我最近',
+									'value': 'location'
+								}
+							]
+						}
+				],
+				
 				showCategoryIndex:0,
 				headerPosition:"fixed",
 				cateMaskState: 0, //分类面板展开状态
@@ -116,6 +159,10 @@
 			this.loadData();
 		},
 		methods: {
+			tabChange(i){
+				this.initIndex = i;
+			},
+			
 			//加载分类
 			async loadCateList(fid, sid){
 				let list = await this.$api.json('cateList');
@@ -373,7 +420,6 @@
 		flex-wrap:wrap;
 		padding: 0 30upx;
 		background: #fff;
-		padding-top: 88upx;
 		.goods-item{
 			display:flex;
 			flex-direction: column;

@@ -1,51 +1,19 @@
 <template>
 	<view class="releaseGet">
 		<view class="item">
-			<view class="text">标题</view>
-			<view class="con">
-				<input type="text" placeholder="请输入标题" value="" />
-			</view>
+			<cat-label @handleconfirmInput="change" :hasR="false" dataType="text" text="标题"  />
 		</view>
 		<view class="item">
-			<view class="text">描述</view>
-			<view class="con">
-				<textarea value="" placeholder="请输入描述" />
-			</view>
+			<cat-label @handleconfirmTextarea="changeTextarea" :hasR="false" inputType="textarea" dataType="text" text="描述"  />
 		</view>
 		<view class="item">
-			<view class="text">分类</view>
-			<view class="con">
-				
-			</view>
+			
 		</view>
 		<view class="item">
-			<view class="text">截止日期</view>
-			<view class="con" @tap="toggleTab">
-				as
-					<view class="result">选择结果：{{resultInfo.result}}</view>
-				<w-picker 
-					mode="date" 
-					endYear="2030" 
-					:defaultVal="defaultVal" 
-					:current="true" 
-					@confirm="onConfirm" 
-					ref="picker" 
-					themeColor="#f00"
-				></w-picker>
-			</view>
+			<cat-label :data="uploadData.foundDate" :hasR="true"  @handleconfirmDate="confirm" dataType="date" text="截止日期"  />
 		</view>
 		<view class="item">
-			<view class="text">交易方式</view>
-			<view class="con">
-				<radio-group @change="radioChange">
-					<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items" :key="item.value">
-						<view>
-							<radio :value="item.value" :checked="index === current" />
-						</view>
-						<view>{{item.name}}</view>
-					</label>
-				</radio-group>
-			</view>
+				<cat-label :selectList="selectType" :hasR="true" dataType="selector" text="交易方式"  />
 		</view>
 		<view class="btns">
 			<button type="primary" >确认发布</button>
@@ -54,10 +22,11 @@
 </template>
 
 <script>
+	import catLabel from "@/components/cat-label.vue"
 	import wPicker from "@/components/w-picker/w-picker.vue";
 	export default {
 		components:{
-			wPicker
+			wPicker,catLabel
 		},
 		
 		data() {
@@ -65,16 +34,12 @@
 				tabIndex:0,
 				current: 0,
 				resultInfo:"",
-				items: [{
-						value: '邮寄',
-						name: '邮寄',
-						checked: 'true'
-					},
-					{
-						value: '自提',
-						name: '自提',
-					},
-				],
+				selectType:[{label:"邮寄",value:0},{label:"自提",value:1}],
+				
+				
+				uploadData:{
+					foundDate:"点击选择截止日期",
+				}
 			}
 		},
 		computed:{
@@ -83,20 +48,22 @@
 			}
 		},
 		methods: {
+			change(e){
+				
+			},
+			changeTextarea(e){
+				
+			},
+			confirm(e){
+				this.uploadData.foundDate = e.result;
+			},
 			toggleTab(){
 				this.$refs.picker.show();
 			},
 			onConfirm(val){
 				this.resultInfo=val.result;
 			},
-			radioChange(evt) {
-				for (let i = 0; i < this.items.length; i++) {
-					if (this.items[i].value === evt.target.value) {
-						this.current = i;
-						break;
-					}
-				}
-			}
+			
 		}
 	}
 </script>
@@ -106,7 +73,7 @@
 		width: 100%;
 		padding:0 24upx;
 		.item{
-			border-bottom: 1upx solid #999;
+			// border-bottom: 1upx solid #999;
 		}
 	}
 </style>

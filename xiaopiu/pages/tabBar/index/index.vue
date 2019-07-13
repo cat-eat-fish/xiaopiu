@@ -60,35 +60,7 @@
 			
 			<!-- 热门商品 -->
 			<partition-line bodyStyle="padding:10upx 0;" lineStyle="background-color:#999" textStyle="color:#000" text="热门求购信息"></partition-line>
-			<view class="guess-line">
-				<view  v-for="(item, index) in goodsList" :key="index" class="guess-item" @click="navToDetailPage(item)">
-					<!-- <view class="image-wrapper"> -->
-						<image class="image-wrapper" :src="item.image" mode="aspectFill"></image>
-					<!-- </view> -->
-					
-					<view class="text">
-						<view class="title">
-							<view class="label">求购</view>
-							<view class="title-name">{{item.title}}</view>
-						</view>
-						<view class="business">
-							<view class="iconfont icongift" style="color:#e83131"></view>
-							<view class="business-name">郑州通讯</view>
-							<uni-rate value="2" size="12"></uni-rate>
-						</view>
-						<view class="other">
-							<view class="l">
-								<view class="label">1789次浏览</view>
-								<view class="label">5人报价</view>
-							</view>
-							<view class="addresss">
-								<view class="iconfont iconlocation-fill"></view>
-								<view class="address-text">郑州</view>
-							</view>
-						</view>
-					</view>
-				</view>
-			</view>
+			<indexList />
 			
 			
 		</view>
@@ -125,6 +97,7 @@
 </template>  
 
 <script>
+	import indexList from '@/pagecomponents/list.vue'
 	import scrollmsg from '@/components/scrollmsg.vue'
 	import province from '@/common/province.js'
 	import uniSelect from '@/components/lee-select/lee-select.vue'
@@ -136,7 +109,7 @@
 	var airportDate = require("@/common/province.js");
 	import uniIndexedList from "@/components/uni-indexed-list/uni-indexed-list.vue"
 	export default {
-		components: {uniIndexedList,partitionLine,grid,uniNoticeBar,uniRate,uniSelect,scrollmsg},
+		components: {indexList,uniIndexedList,partitionLine,grid,uniNoticeBar,uniRate,uniSelect,scrollmsg},
 		data() {
 			return {
 				
@@ -592,49 +565,7 @@
 	}
 	
 	// 单条数据
-	.guess-line{
-		display: flex;
-		flex-wrap: wrap;
-		padding: 40upx 30upx 0;
-		background: #fff;
-		.guess-item{
-			display: flex;
-			width: 96%;
-			padding-bottom: 20px;
-			.image-wrapper{
-				width: 200upx;
-				height: 200upx;
-			}
-			.text{
-				width: 68%;
-				margin-left: 10upx;
-				.label{line-height: 26px;background: #c5bfbf;color: #424141; border-radius: 15px;width: 30%;margin: 0 10upx 0 0;text-align: center;}
-				.title{
-					display: flex;
-					.title-name{width:80%; white-space: nowrap;text-overflow: ellipsis;overflow: hidden}
-				}
-				.business{
-					display: flex;
-					.iconfont{font-size: 24px}
-					.business-name{margin: 24upx 0 0 10upx;font-size: 14px}
-					.uni-rate{margin: 28upx 0 0 20upx;display: flex;}
-				}
-				.other{display: flex;justify-content: space-between;
-					.l,.addresss{display: flex;}
-					.l{
-						width: 70%;
-						justify-content: start;
-						.label{font-size: 12px}
-						.label:first-child{width: 60%;}
-						.label:last-child{width:42%;}
-					}
-					.addresss{
-						.iconfont{color: #c5bfbf}
-					}
-				}
-			}
-		}
-	}
+	
 	.uni-noticebar__content-icon{
 		margin-top: -3px;
 	}
